@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+---
+
+<article>
+  <h1>{{ title }}</h1>
+
+  <div class="path">
+    <a href="/terminal" class="path-root">root</a>/<a href="/">home</a>/<a href="/projects/">projects</a>/<span class="path-current">{{ page.fileSlug }}{{ pathExtension or ".html" }}</span>
+  </div>
+
+  <div class="meta">
+    <span class="date">{{ date | dateFormat }}</span>
+    {% if updated %}
+      <span class="date updated">Updated: {{ updated.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) }}</span>
+    {% endif %}
+    {% if tags %}
+    <div class="tags">
+      {% for tag in tags %}
+        {% if tag != "project" and tag != "posts" %}
+          <a href="#" class="tag">{{ tag }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+
+  {{ content | safe }}
+</article>

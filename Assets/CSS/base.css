@@ -1,0 +1,75 @@
+:root {
+  --bg-color: #4a1e1e;
+  --text-color: #f2eaea;
+  --accent-color: #b35a5a;
+  --nav-bg: #3a1616;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ===== HEADER / NAV ===== */
+
+header {
+  background-color: var(--nav-bg);
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+nav {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+
+/* ===== MAIN LAYOUT ===== */
+
+main {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+/* ===== FOOTER ===== */
+
+footer {
+  margin-top: 5rem;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+}

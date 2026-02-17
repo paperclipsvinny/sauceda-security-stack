@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Posts – Sauceda's Security Stack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/Assets/CSS/base.css">
+  
+  <!-- Post CSS -->
+  <link rel="stylesheet" href="/Assets/CSS/post.css">
+
+  <!-- Post-specific CSS -->
+  
+</head>
+
+<body>
+  <style>
+header {
+  width: 100%;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between; /* ← key line */
+  align-items: center;
+  padding: 1rem 2rem; /* controls distance from edges */
+}
+
+header nav ul {
+  display: flex;
+  gap: 1.5rem; /* spacing between links */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  text-decoration: none;
+}
+header nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+nav a.active {
+  border-bottom: 2px solid currentColor;
+}
+</style>
+
+<header>
+  <nav>
+    <div class="logo">Sauceda's Security Stack</div>
+    <ul>
+      <li><a href="/" >Home</a></li>
+      <li><a href="/posts/" class="active">Posts</a></li>
+      <li><a href="/projects/" >Projects</a></li>
+      <li><a href="/about/" >About</a></li>
+      <li><a href="/contact/" >Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <nav class="tag-nav">
+  <ul>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+<h1>All Posts</h1>
+
+<div style="margin-bottom: 3rem;">
+  <div style="margin-bottom: 1.5rem;">
+    <span style="font-size: 0.85rem; opacity: 0.7; margin-right: 0.5rem;">By tag:</span>
+    <div class="tag-filter" style="display: inline-block;">
+      <button data-filter="all" class="active">All</button>
+      
+      
+        
+          
+            
+          
+            
+          
+            
+              
+            
+          
+            
+              
+            
+          
+            
+              
+            
+          
+        
+      
+        
+          
+            
+          
+            
+          
+            
+          
+            
+              
+            
+          
+            
+          
+        
+      
+        
+          
+            
+          
+            
+          
+            
+              
+            
+          
+            
+              
+            
+          
+            
+              
+            
+          
+        
+      
+        
+          
+            
+          
+            
+          
+            
+          
+            
+              
+            
+          
+            
+              
+            
+          
+        
+      
+      
+        <button data-filter="Cabrillo College">Cabrillo College</button>
+      
+        <button data-filter="Career">Career</button>
+      
+        <button data-filter="Conferences">Conferences</button>
+      
+        <button data-filter="CTFs and Methodology">CTFs and Methodology</button>
+      
+        <button data-filter="Education">Education</button>
+      
+        <button data-filter="Just For Fun">Just For Fun</button>
+      
+        <button data-filter="Privilege Escalation">Privilege Escalation</button>
+      
+        <button data-filter="Reflections">Reflections</button>
+      
+        <button data-filter="TryHackMe Walkthrough">TryHackMe Walkthrough</button>
+      
+    </div>
+  </div>
+
+  <div>
+    <span style="font-size: 0.85rem; opacity: 0.7; margin-right: 0.5rem;">By date:</span>
+    <div class="date-sort" style="display: inline-block;">
+      <button data-sort="newest" class="active">Newest First</button>
+      <button data-sort="oldest">Oldest First</button>
+    </div>
+  </div>
+</div>
+
+<div id="posts-container">
+  
+    <article class="post-preview" 
+             style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem;"
+             data-tags="posts,posts,Reflections,Cabrillo College,Career"
+             data-date="Mon Feb 02 2026 16:00:00 GMT-0800 (Pacific Standard Time)"
+             data-title="BACL Musings">
+      
+      <h2>
+        <a href="/posts/BACLReflections/" style="color: inherit; text-decoration: none;">
+          BACL Musings
+        </a>
+      </h2>
+
+      <div class="meta">
+        <span class="date">February 2, 2026</span>
+        
+          <div class="tags">
+            
+              
+            
+              
+            
+              
+                <span class="tag">Reflections</span>
+              
+            
+              
+                <span class="tag">Cabrillo College</span>
+              
+            
+              
+                <span class="tag">Career</span>
+              
+            
+          </div>
+        
+      </div>
+
+      
+        <p>Cyber camps, building systems, and behind-the-scenes chaos, oh my! Here&#39;s what I learned working at the Bay Area Cyber League.
+</p>
+      
+
+    </article>
+  
+    <article class="post-preview" 
+             style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem;"
+             data-tags="posts,posts,Reflections,Education,Cabrillo College"
+             data-date="Sun Jan 18 2026 16:00:00 GMT-0800 (Pacific Standard Time)"
+             data-title="CS404 - A Reflection">
+      
+      <h2>
+        <a href="/posts/cs404reflections/" style="color: inherit; text-decoration: none;">
+          CS404 - A Reflection
+        </a>
+      </h2>
+
+      <div class="meta">
+        <span class="date">January 18, 2026</span>
+        
+          <div class="tags">
+            
+              
+            
+              
+            
+              
+                <span class="tag">Reflections</span>
+              
+            
+              
+                <span class="tag">Education</span>
+              
+            
+              
+                <span class="tag">Cabrillo College</span>
+              
+            
+          </div>
+        
+      </div>
+
+      
+        <p>A look back through my journey founding Cabrillo&#39;s first Cybersecurity club, CS404.  The rise to fame, evolution, and what it taught me.   
+</p>
+      
+
+    </article>
+  
+    <article class="post-preview" 
+             style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem;"
+             data-tags="posts,posts,Privilege Escalation,CTFs and Methodology,TryHackMe Walkthrough"
+             data-date="Sat Jun 14 2025 17:00:00 GMT-0700 (Pacific Daylight Time)"
+             data-title="Shrek KOTH">
+      
+      <h2>
+        <a href="/posts/ShrekKOTH/" style="color: inherit; text-decoration: none;">
+          Shrek KOTH
+        </a>
+      </h2>
+
+      <div class="meta">
+        <span class="date">June 14, 2025</span>
+        
+          <div class="tags">
+            
+              
+            
+              
+            
+              
+                <span class="tag">Privilege Escalation</span>
+              
+            
+              
+                <span class="tag">CTFs and Methodology</span>
+              
+            
+              
+                <span class="tag">TryHackMe Walkthrough</span>
+              
+            
+          </div>
+        
+      </div>
+
+      
+        <p>How I got root on the Shrek King-of-the-Hill box on TryHackMe. Lots of Shrek Imagery, viewer discretion advised. 
+</p>
+      
+
+    </article>
+  
+    <article class="post-preview" 
+             style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 2rem;"
+             data-tags="posts,posts,Reflections,Conferences,Just For Fun"
+             data-date="Sun Sep 08 2024 17:00:00 GMT-0700 (Pacific Daylight Time)"
+             data-title="My First Experience at BSides SF">
+      
+      <h2>
+        <a href="/posts/bsidessf/" style="color: inherit; text-decoration: none;">
+          My First Experience at BSides SF
+        </a>
+      </h2>
+
+      <div class="meta">
+        <span class="date">September 8, 2024</span>
+        
+          <div class="tags">
+            
+              
+            
+              
+            
+              
+                <span class="tag">Reflections</span>
+              
+            
+              
+                <span class="tag">Conferences</span>
+              
+            
+              
+                <span class="tag">Just For Fun</span>
+              
+            
+          </div>
+        
+      </div>
+
+      
+        <p>A post dedicated to my first-ever experience at Cybersecurity conference. You never forget your first, right? 
+</p>
+      
+
+    </article>
+  
+</div>
+
+<script>
+  const tagButtons = document.querySelectorAll(".tag-filter button");
+  const sortButtons = document.querySelectorAll(".date-sort button");
+  const postsContainer = document.getElementById("posts-container");
+  const posts = Array.from(document.querySelectorAll(".post-preview"));
+
+  let currentFilter = "all";
+  let currentSort = "newest";
+
+  function updateDisplay() {
+    // Filter posts
+    const filteredPosts = posts.filter(post => {
+      const tags = post.dataset.tags.split(",");
+      return currentFilter === "all" || tags.includes(currentFilter);
+    });
+
+    // Sort posts
+    filteredPosts.sort((a, b) => {
+      const dateA = new Date(a.dataset.date);
+      const dateB = new Date(b.dataset.date);
+      return currentSort === "newest" ? dateB - dateA : dateA - dateB;
+    });
+
+    // Hide all posts
+    posts.forEach(post => post.style.display = "none");
+
+    // Show and reorder filtered posts
+    filteredPosts.forEach(post => {
+      post.style.display = "";
+      postsContainer.appendChild(post);
+    });
+  }
+
+  tagButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      currentFilter = button.dataset.filter;
+      tagButtons.forEach(b => b.classList.remove("active"));
+      button.classList.add("active");
+      updateDisplay();
+    });
+  });
+
+  sortButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      currentSort = button.dataset.sort;
+      sortButtons.forEach(b => b.classList.remove("active"));
+      button.classList.add("active");
+      updateDisplay();
+    });
+  });
+</script>
+
+<style>
+  .tag-filter button,
+  .date-sort button {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: var(--text-color);
+    padding: 0.3rem 0.6rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8rem;
+  }
+
+  .tag-filter button.active,
+  .date-sort button.active {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .tag-filter button:hover,
+  .date-sort button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+</style>
+
+  </main>
+
+
+  <footer>
+  © 2026 – Benito Sauceda
+</footer>
+
+
+  
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects – Sauceda's Security Stack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/Assets/CSS/base.css">
+  
+  <!-- Post CSS -->
+  <link rel="stylesheet" href="/Assets/CSS/post.css">
+
+  <!-- Post-specific CSS -->
+  
+</head>
+
+<body>
+  <style>
+header {
+  width: 100%;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between; /* ← key line */
+  align-items: center;
+  padding: 1rem 2rem; /* controls distance from edges */
+}
+
+header nav ul {
+  display: flex;
+  gap: 1.5rem; /* spacing between links */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  text-decoration: none;
+}
+header nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+nav a.active {
+  border-bottom: 2px solid currentColor;
+}
+</style>
+
+<header>
+  <nav>
+    <div class="logo">Sauceda's Security Stack</div>
+    <ul>
+      <li><a href="/" >Home</a></li>
+      <li><a href="/posts/" >Posts</a></li>
+      <li><a href="/projects/" class="active">Projects</a></li>
+      <li><a href="/about/" >About</a></li>
+      <li><a href="/contact/" >Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <nav class="tag-nav">
+  <ul>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+<main>
+  <section class="page-header">
+    <h1>Projects</h1>
+    <p>
+      A collection of hands-on security projects, side quests, and experiments.
+      These range from offensive security techniques and hardware tinkering to
+      defensive tooling and infrastructure work.
+    </p>
+  </section>
+
+  <section class="projects-grid">
+    
+  </section>
+</main>
+
+<style>
+  .page-header {
+    margin-bottom: 3rem;
+  }
+
+  .page-header h1 {
+    font-size: 2.3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-header p {
+    max-width: 700px;
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .project-card {
+    background-color: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  }
+
+  .project-thumb {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-content h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-content h2 a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  .project-content h2 a:hover {
+    color: var(--accent-color);
+  }
+
+  .project-content p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+  }
+
+  .project-meta {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .project-meta .status {
+    color: var(--accent-color);
+    font-weight: bold;
+  }
+
+  .project-meta .tag {
+    padding: 0.15rem 0.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 0.75rem;
+  }
+</style>
+
+  </main>
+
+
+  <footer>
+  © 2026 – Benito Sauceda
+</footer>
+
+
+  
+</body>
+</html>

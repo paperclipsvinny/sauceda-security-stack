@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact – Sauceda's Security Stack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/Assets/CSS/base.css">
+  
+  <!-- Post CSS -->
+  <link rel="stylesheet" href="/Assets/CSS/post.css">
+
+  <!-- Post-specific CSS -->
+  
+</head>
+
+<body>
+  <style>
+header {
+  width: 100%;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between; /* ← key line */
+  align-items: center;
+  padding: 1rem 2rem; /* controls distance from edges */
+}
+
+header nav ul {
+  display: flex;
+  gap: 1.5rem; /* spacing between links */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  text-decoration: none;
+}
+header nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+nav a.active {
+  border-bottom: 2px solid currentColor;
+}
+</style>
+
+<header>
+  <nav>
+    <div class="logo">Sauceda's Security Stack</div>
+    <ul>
+      <li><a href="/" >Home</a></li>
+      <li><a href="/posts/" >Posts</a></li>
+      <li><a href="/projects/" >Projects</a></li>
+      <li><a href="/about/" >About</a></li>
+      <li><a href="/contact/" class="active">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <nav class="tag-nav">
+  <ul>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    <style>
+  main {
+    max-width: 800px;
+  }
+
+  .terminal-container {
+    background-color: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 2rem;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 0.95rem;
+    line-height: 1.8;
+  }
+
+  .terminal-header {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+  }
+
+  .terminal-line {
+    margin-bottom: 0.5rem;
+  }
+
+  .terminal-prompt {
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+  }
+
+  .terminal-label {
+    color: rgba(255,255,255,0.7);
+    margin-right: 0.5rem;
+  }
+
+  .terminal-value {
+    color: var(--text-color);
+  }
+
+  .terminal-value a {
+    color: var(--text-color);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--accent-color);
+  }
+
+  .terminal-value a:hover {
+    color: var(--accent-color);
+  }
+
+  .section-break {
+    margin: 2rem 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+  }
+
+  .pgp-block {
+    background-color: rgba(0,0,0,0.4);
+    border-left: 3px solid var(--accent-color);
+    padding: 1rem;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .pgp-block pre {
+    margin: 0;
+    white-space: pre;
+    font-family: inherit;
+  }
+
+  .copy-hint {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .terminal-container {
+      padding: 1.5rem;
+      font-size: 0.85rem;
+    }
+  }
+</style>
+<main>
+<h1> Contact Me</h1>
+<p>If something here sparks a question, conversation, or curiosity, feel free to reach out through any of the contact methods below. I’m always down for academic discussions, collaboration, or just chatting with fellow cybersecurity enthusiasts (and non-enthusiasts alike). <span class="end-of-article">&lt;/&gt;</span>
+</p>
+<br>
+  <div class="terminal-container">
+    <div class="terminal-header">
+      $ cat contact.txt
+    </div>
+<p><div class="terminal-line">
+<span class="terminal-prompt">&gt;</span>
+<span class="terminal-label">email:</span>
+<span class="terminal-value"><a href="mailto:benitosauceda@proton.me">benitosauceda@proton.me</a></span>
+</div></p>
+<p><div class="terminal-line">
+<span class="terminal-prompt">&gt;</span>
+<span class="terminal-label">linkedin:</span>
+<span class="terminal-value"><a href="https://www.linkedin.com/in/benito-s626/" target="_blank" rel="noopener noreferrer">linkedin.com/in/benito-s626</a></span>
+</div></p>
+<p><div class="terminal-line">
+<span class="terminal-prompt">&gt;</span>
+<span class="terminal-label">discord:</span>
+<span class="terminal-value">paperclips.vinny</span>
+</div></p>
+<p><div class="section-break">
+<div class="terminal-header">
+$ gpg --import public-key.asc
+</div></p>
+<p><div class="terminal-line">
+<span class="terminal-label">fingerprint:</span>
+<span class="terminal-value">60B5 6A3D 117E 88D6 59D5 DB58 A113 0327 F1B9 1560</span>
+</div></p>
+<p><div class="pgp-block">
+<pre>-----BEGIN PGP PUBLIC KEY BLOCK-----</p>
+<p>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
+Btt0PXabpCVFyOoR
+=Md5V
+-----END PGP PUBLIC KEY BLOCK-----</pre>
+</div></p>
+<p><div class="copy-hint">
+(select and copy, or save as .asc file)
+</div>
+</div></p>
+  </div>
+</main>
+
+  </main>
+
+
+  <footer>
+  © 2026 – Benito Sauceda
+</footer>
+
+
+  
+</body>
+</html>

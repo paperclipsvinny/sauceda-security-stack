@@ -1,0 +1,156 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+<style>
+.hero-logo {
+  max-width: 500px;     /* controls visual size */
+  margin: 3rem auto 2rem;
+}
+
+.hero-logo img {
+  width: 100%;          /* scales down to container */
+  height: auto;         /* preserves aspect ratio */
+  display: block;
+}
+</style>
+
+<main>
+<div class="hero-logo">
+  <img src="/Assets/images/Logov2.png" alt="Sauceda's Security Stack logo">
+</div>
+  <h1 style="text-align: center;">Welcome</h1>
+  
+  <p>This is my personal cybersecurity portfolio and blog. Here you'll find writeups, reflections, and projects related to offensive security, CTFs, and my journey in cybersecurity.</p>
+  
+  <div style="text-align: center; margin: 2rem 0;">
+    <a href="/terminal/" class="terminal-link">
+      <span class="prompt">visitor@here:~$</span></span> click here to navigate this site through a terminal<span class="cursor-blink">█
+    </a>
+  </div>
+  
+  <h1 style="text-align: center; margin-top: 3rem;">Recent Posts</h1>
+  
+  <div style="border-top: 1px solid rgba(255,255,255,0.15); margin: 2rem 0;"></div>
+  
+  <div class="posts-list">
+{% for post in collections.posts.slice(0, 3) %}
+    <article class="post-preview">
+      <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <div class="meta">
+          <span class="date">{{ post.data.date | dateFormat }}</span>
+        </div>
+        {% if post.data.tags %}
+          <div class="tags">
+            {% for tag in post.data.tags %}
+              {% if tag != "posts" %}
+                <span class="tag">{{ tag }}</span>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+        {% if post.data.summary %}
+          <p class="excerpt">{{ post.data.summary }}</p>
+        {% endif %}
+      </article>
+    {% endfor %}
+  </div>
+  
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="/posts/" style="color: var(--accent-color); text-decoration: none; font-size: 1.1rem;">View All Posts ></a>
+  </div>
+</main>
+
+<style>
+  .terminal-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  .terminal-link:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .terminal-link .prompt {
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+  }
+  
+  .cursor-blink {
+    animation: blink 1s step-end infinite;
+    color: var(--accent-color);
+  }
+  
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  .posts-list {
+    margin-top: 2rem;
+  }
+  
+  .post-preview {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .post-preview:last-child {
+    border-bottom: none;
+  }
+  
+  .post-preview h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-preview h3 a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+  
+  .post-preview h3 a:hover {
+    color: var(--accent-color);
+  }
+  
+  .post-preview .meta {
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-preview .date {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+  }
+  
+  .post-preview .tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.75rem;
+  }
+  
+  .post-preview .tag {
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.75rem;
+    color: var(--text-color);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  
+  .post-preview .excerpt {
+    margin-top: 0.75rem;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+</style>

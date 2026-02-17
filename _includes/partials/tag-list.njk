@@ -1,0 +1,9 @@
+<nav class="tag-nav">
+  <ul>
+    {% for tag in postTags %}
+      <li>
+        <a href="/tags/{{ tag }}/">#{{ tag }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

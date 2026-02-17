@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{% if title %}{{ title }} – {% endif %}Sauceda's Security Stack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/Assets/CSS/base.css">
+  
+  <!-- Post CSS -->
+  <link rel="stylesheet" href="/Assets/CSS/post.css">
+
+  <!-- Post-specific CSS -->
+  {% block head %}{% endblock %}
+</head>
+
+<body>
+  {% include "partials/header.njk" %}
+  {% include "partials/tag-list.njk" %}
+
+  <main>
+    {{ content | safe }}
+  </main>
+
+
+  {% include "partials/footer.njk" %}
+
+  {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects – Sauceda's Security Stack</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/Assets/CSS/base.css">
+  
+  <!-- Post CSS -->
+  <link rel="stylesheet" href="/Assets/CSS/post.css">
+
+  <!-- Post-specific CSS -->
+  
+</head>
+
+<body>
+  <style>
+header {
+  width: 100%;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between; /* ← key line */
+  align-items: center;
+  padding: 1rem 2rem; /* controls distance from edges */
+}
+
+header nav ul {
+  display: flex;
+  gap: 1.5rem; /* spacing between links */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  text-decoration: none;
+}
+header nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+nav a.active {
+  border-bottom: 2px solid currentColor;
+}
+</style>
+
+<header>
+  <nav>
+    <div class="logo">Sauceda's Security Stack</div>
+    <ul>
+      <li><a href="/" >Home</a></li>
+      <li><a href="/posts/" >Posts</a></li>
+      <li><a href="/projects/" class="active">Projects</a></li>
+      <li><a href="/about/" >About</a></li>
+      <li><a href="/contact/" >Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <nav class="tag-nav">
+  <ul>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+<style>
+  /* Override base layout max-width for projects page */
+  main {
+    max-width: 1400px;
+  }
+</style>
+
+<main>
+  <section class="page-header">
+    <h1>Projects</h1>
+    <p>
+      A collection of hands-on security projects, side quests, and experiments.
+      These range from offensive security techniques and hardware tinkering to
+      defensive tooling and infrastructure work.
+    </p>
+  </section>
+
+  <section class="projects-grid">
+    <!-- PLC Hacking - Coming Soon (First) -->
+    <article class="project-card coming-soon">
+      <div class="project-thumb">
+        <img src="/Assets/images/projectimages/PLCHacking/PLC_Panasonic_FP-XH_C30T.jpg" alt="PLC Hacking">
+      </div>
+      <div class="project-content">
+        <h2>PLC Hacking</h2>
+        <div class="project-meta">
+          <span class="tag">ICS</span>
+          <span class="tag">SCADA</span>
+          <span class="tag">Privilege Escalation</span>
+        </div>
+        <p>A deep dive into exploiting Programmable Logic Controllers (PLCs), found in SCADA systems and industrial environments.</p>
+        <p class="coming-soon-label">Coming Soon</p>
+      </div>
+    </article>
+    
+    
+      <article class="project-card">
+        
+        <div class="project-thumb">
+          <a href="/projects/hacker-graduation-cap/">
+            <img src="/Assets/images/projectimages/Gradcap/WearablePrototype.JPG" alt="Hacker Graduation Cap">
+          </a>
+        </div>
+        
+        <div class="project-content">
+          <h2><a href="/projects/hacker-graduation-cap/">Hacker Graduation Cap</a></h2>
+          <div class="project-meta">
+            
+              
+                
+              
+                
+                  <span class="tag">Embedded Systems</span>
+                
+              
+                
+                  <span class="tag">WiFi</span>
+                
+              
+                
+                  <span class="tag">UX</span>
+                
+              
+            
+          </div>
+          
+            <p>Taking cap decoration to the next level with a custom ESP32-based wearable WiFi access point with a stylized captive portal, SD card storage, and mobile-friendly input handling.</p>
+          
+          <a href="/projects/hacker-graduation-cap/" class="read-more">Read more ></a>
+        </div>
+      </article>
+    
+      <article class="project-card">
+        
+        <div class="project-thumb">
+          <a href="/projects/sticky-keys-exploit/">
+            <img src="/Assets/images/projectimages/stickykeys/stickykeyspopup.png" alt="Sticky Keys Sidequest">
+          </a>
+        </div>
+        
+        <div class="project-content">
+          <h2><a href="/projects/sticky-keys-exploit/">Sticky Keys Sidequest</a></h2>
+          <div class="project-meta">
+            
+              
+                
+              
+                
+                  <span class="tag">Side Quests</span>
+                
+              
+                
+                  <span class="tag">Privilege Escalation</span>
+                
+              
+                
+                  <span class="tag">OS Authentication Bypass</span>
+                
+              
+            
+          </div>
+          
+            <p>Exploiting the Windows Sticky Keys accessibility feature to gain system-level access and bypass authentication on legacy Windows systems.</p>
+          
+          <a href="/projects/sticky-keys-exploit/" class="read-more">Read more ></a>
+        </div>
+      </article>
+    
+  </section>
+</main>
+
+<style>
+  .page-header {
+    margin-bottom: 3rem;
+    text-align: centerte
+  }
+
+  .page-header h1 {
+    font-size: 2.3rem;
+    margin-bottom: 0.75rem;
+    text-align: center
+  }
+
+  .page-header p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.9);
+    text-align: center
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .project-card {
+    background-color: #371616;
+    border: 1px solid rgba(255,255,255,0.15);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+  }
+
+  .project-thumb {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.2);
+  }
+
+  .project-thumb img {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .project-content h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-content h2 a {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  .project-content h2 a:hover {
+    color: var(--accent-color);
+  }
+
+  .project-content p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 1.2rem;
+    flex-grow: 1;
+  }
+
+  .project-meta {
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .project-meta .tag {
+    padding: 0.15rem 0.5rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 0.75rem;
+  }
+  
+  .coming-soon {
+    opacity: 0.6;
+    cursor: default;
+  }
+  
+  .coming-soon:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  .coming-soon h2 {
+    color: var(--text-color);
+    cursor: default;
+  }
+  
+  .coming-soon-label {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+  
+  .read-more {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    display: block;
+  }
+  
+  .read-more:hover {
+    text-decoration: underline;
+  }
+</style>
+
+  </main>
+
+
+  <footer>
+  © 2026 – Benito Sauceda
+</footer>
+
+
+  
+</body>
+</html>
