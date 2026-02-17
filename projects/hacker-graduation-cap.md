@@ -2,7 +2,7 @@
 layout: layouts/projects.njk
 title: Hacker Graduation Cap
 date: 2025-05-25
-thumbnail: /Assets/images/projectimages/Gradcap/WearablePrototype.JPG
+thumbnail: /Assets/images/projectimages/GradCap/WearablePrototype.JPG
 summary: Taking cap decoration to the next level with a custom ESP32-based wearable WiFi access point with a stylized captive portal, SD card storage, and mobile-friendly input handling. 
 pathExtension: .ino
 tags:
@@ -20,7 +20,7 @@ This project started around four days or so before I was set to walk at my gradu
 These seven simple words got me thinking: "Why don't I make something with wearable tech? My entire time at Cabrillo has been very tech and cybersecurity oriented. Why don't I make a project that embodies that?"
 
 <div class="image">
-  <img src="/Assets/images/projectimages/Gradcap/Bismarck_pickelhaube.jpg" alt="Bismarck with a Pickelhaube" style="max-width: 50%; height: auto;" />
+  <img src="/Assets/images/projectimages/GradCap/Bismarck_pickelhaube.jpg" alt="Bismarck with a Pickelhaube" style="max-width: 50%; height: auto;" />
   <figcaption>
     "This picture actually did come up when figuring out how to style a 2.4 GHz 3DBI WiFi antenna on my graduation cap." 
     Source: <a href="https://simple.wikipedia.org/wiki/File:Bismarck_pickelhaube.jpg" target="_blank">Wikipedia</a>
@@ -64,7 +64,7 @@ The largest setback I reached on this project was that my FTDI to USB adapter fo
 ### Web App + Wi-Fi Access Point
 
 <div class="image">
-  <img src="/Assets/images/projectimages/Gradcap/GradCapSketch.png" alt="Grad Cap Sketch" />
+  <img src="/Assets/images/projectimages/GradCap/GradCapSketch.png" alt="Grad Cap Sketch" />
   <figcaption>
     "Snippet of code in the Arduino sketch– I know dark mode gives you more lines per second, oh well."
   </figcaption>
@@ -73,7 +73,7 @@ The largest setback I reached on this project was that my FTDI to USB adapter fo
 The first step in this process was to get the ESP32 to broadcast an SSID. The ESP32 has three standard Wi-Fi modes- Station mode (STA), AP mode (access point), and AP + STA mode (it also has ESP-NOW, which is a connectionless protocol meant to send small messages between ESP boards, but it's not relevant for this project). Station mode means the esp32 acts as a client, AP mode means the ESP32 creates its own Wi-Fi network, allowing other devices to connect to it and AP + STA mode means the ESP32 functions as both a client and an access point, enabling complex networking setups. For the sake of this project, I really only needed AP mode, although I could see some future developments of the project using AP + STA mode. I whipped up a quick HTML page, and used the <WiFi.h> and <ESPAsyncWebServer.h> libraries to serve a webserver on port 80.
 
 <div class="image">
-  <img src="/Assets/images/projectimages/Gradcap/GradCapSSID.png" alt="Grad Cap SSID" />
+  <img src="/Assets/images/projectimages/GradCap/GradCapSSID.png" alt="Grad Cap SSID" />
   <figcaption>
     "Got the SSID working."
   </figcaption>
@@ -85,7 +85,7 @@ The next problem was storage–if the ESP32 isn't connected to a cloud service, 
 I mentioned earlier that I had divided the project into two parts. There was a third half, which was equally important- assembling the working prototype into a form factor that was wearable for the big day. Ideally the final product would be visually appealing to wear, safe, and secure enough to survive potentially being thrown in the air. The third part of the project, unfortunately, did not come to fruition quite as I had hoped.
 
 <div class="image">
-  <img src="/Assets/images/projectimages/Gradcap/WearablePrototype.jpg" alt="Wearable Prototype" />
+  <img src="/Assets/images/projectimages/GradCap/WearablePrototype.jpg" alt="Wearable Prototype" />
   <figcaption>
     "Between running out of flux and messing up wiring schematics, I didn't get much further than this in the assembly part."
   </figcaption>
@@ -100,7 +100,7 @@ While working on this project, I developed tunnel vision. The project was all I 
 It was impossible to finish on time– there was no time left. I was less than a few hours away from the start of the ceremony, and I still had to change, drive over, park, check in, and do all of the graduate things. As unfortunate as it was, I realized that I had to cut my losses, and focus on actually attending my graduation. It was a bittersweet moment, because I was proud to have overcome all the small obstacles and created a working version of my vision, only to be robbed of using it for its ultimate purpose by the clock running out. Ultimately, I'm glad that I took on this project, even if the project reached a functional but not fully wearable state by graduation day. I learned a lot from this project, and it kept me occupied until right before it was time to go to the ceremony. While I wish my mom would have asked me about cap decorating sooner, I know that I gave the project 100% effort, even with such a limited deadline- which, at the end of the day, is something to feel good about. <span class="end-of-article">&lt;/&gt;</span>
 
 <div class="image">
-  <img src="/Assets/images/projectimages/Gradcap/GraduationDay.png" alt="Graduation Day" style="max-width: 50%; height: auto;" />
+  <img src="/Assets/images/projectimages/GradCap/GraduationDay.png" alt="Graduation Day" style="max-width: 50%; height: auto;" />
   <figcaption>
     "Post-grad."
   </figcaption>
