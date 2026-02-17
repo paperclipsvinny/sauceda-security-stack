@@ -2,7 +2,7 @@
 layout: layouts/projects.njk
 title: Hacker Graduation Cap
 date: 2025-05-25
-thumbnail: /Assets/images/projectimages/GradCap/WearablePrototype.JPG
+thumbnail: /Assets/images/projectimages/GradCap/WearablePrototype.jpg
 summary: Taking cap decoration to the next level with a custom ESP32-based wearable WiFi access point with a stylized captive portal, SD card storage, and mobile-friendly input handling. 
 pathExtension: .ino
 tags:
