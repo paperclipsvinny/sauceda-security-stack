@@ -11,8 +11,6 @@ tags:
   - UX
 ---
 
-# Hacker Graduation Cap
-
 ### Project Overview
 
 This project started around four days or so before I was set to walk at my graduation from Cabrillo College. My mom saw me trying on my gown and cap and she asked me: "Are you going to decorate it?", which I had already decided against. I liked the minimal look, and I was planning on wearing some sashes and a lei anyway, which I told her. She responded: "Why don't you make something with tech?"
