@@ -7,7 +7,7 @@ tags:
   - Just for Fun
 file_ext: ".psd"
 summary: >
-  Your logo. What, Why, How? The answers to * some * of your burning questions, read all about it.
+  The logo... What, Why, How? The answers to * some * of your burning questions– read all about it!
 ---
 <div class="image">
   <img src="/Assets/images/postimages/makingofthelogo/earlyversion.png" alt="An early version of my Logo.">
