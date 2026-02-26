@@ -11,7 +11,7 @@ tags:
   - Hardware Hacking
 ---
 <div class="image">
-  <img src="/Assets/images/projectimages/LinksysE5350/dnsmasq.png" alt="Picture of DNS configuration change from within the router." />
+  <img src="/Assets/images/projectimages/LinksysE5350/dnsconf.png" alt="Picture of DNS configuration change from within the router." />
   <figcaption>DNS Hijacking is just scratching the surface of the potential for attacks when you can modify any files on a router.</figcaption>
 </div>
 
