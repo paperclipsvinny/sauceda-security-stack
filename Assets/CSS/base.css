@@ -77,9 +77,7 @@ footer {
 .rss-link {
   color: #b35a5a;
   text-decoration: none;
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.3rem;
+  display: inline-block;
 }
 
 .rss-link:hover {
@@ -88,6 +86,8 @@ footer {
 
 .rss-link svg {
   stroke: #b35a5a;
+  display: inline-block;
   vertical-align: middle;
-  
+  margin-right: 0.1rem; /* Reduced from 0.25rem */
+  transform: translateY(-1px);
 }
