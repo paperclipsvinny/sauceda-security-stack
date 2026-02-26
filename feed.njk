@@ -21,7 +21,7 @@ eleventyExcludeFromCollections: true
     <updated>{{ item.date | dateToRfc3339 }}</updated>
     <id>{{ item.url | absoluteUrl('https://saucedasecurity.com') }}</id>
     <content type="html"><![CDATA[
-      {{ item.data.summary | safe }}
+      {{ item.templateContent | safe }}
     ]]></content>
   </entry>
 {%- endfor %}
