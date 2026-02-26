@@ -1,9 +1,13 @@
 // .eleventy.js
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 module.exports = function(eleventyConfig) {
-  // ===== Passthroughs =====
+  // plugins
+  eleventyConfig.addPlugin(pluginRss);
+
+  // Passthroughs
   eleventyConfig.addPassthroughCopy("Assets");
 
-  // ===== Date Filter =====
+  //Date Filter 
   eleventyConfig.addFilter("dateFormat", function(date) {
     if (!date) return "";
     
@@ -20,14 +24,14 @@ module.exports = function(eleventyConfig) {
     });
   });
 
-  // ===== Collections =====
+  // Collections
 eleventyConfig.addCollection("posts", function(collectionApi) {
   return collectionApi.getFilteredByTag("posts").sort((a, b) => {
     return b.date - a.date; // Descending order (newest first)
   });
 });
 
-// ===== Filters =====
+//  Filters 
 eleventyConfig.addFilter("slugify", function(text) {
   return text.toString().toLowerCase()
     .replace(/\s+/g, '-').replace(/[^\w\-]+/g, '')
@@ -43,6 +47,7 @@ eleventyConfig.addFilter("striptags", function(text) {
   return text.replace(/<[^>]*>/g, '');
 });
 
+// collections
 eleventyConfig.addCollection("tagList", function(collectionApi) {
   const tagSet = new Set();
   collectionApi.getAll().forEach(item => {
@@ -61,7 +66,7 @@ eleventyConfig.addCollection("tagList", function(collectionApi) {
     return collectionApi.getFilteredByTag("project");
   });
 
-  // ===== Directory settings =====
+  // Directory settings
   return {
     dir: {
       input: ".",
@@ -71,4 +76,5 @@ eleventyConfig.addCollection("tagList", function(collectionApi) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk"
   };
+  
 };

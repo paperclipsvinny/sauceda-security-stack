@@ -1,0 +1,28 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Sauceda's Security Stack</title>
+  <subtitle>Cybersecurity writeups, reflections, and projects</subtitle>
+  <link href="https://saucedasecurity.com/feed.xml" rel="self"/>
+  <link href="https://saucedasecurity.com/"/>
+  <updated>{{ collections.posts | getNewestCollectionItemDate | dateToRfc3339 }}</updated>
+  <id>https://saucedasecurity.com/</id>
+  <author>
+    <name>Benito Sauceda</name>
+  </author>
+  {%- set allContent = collections.posts.concat(collections.projects) | sort(false, false, 'date') | reverse %}
+{%- for item in allContent %}
+  <entry>
+    <title>{{ item.data.title }}</title>
+    <link href="{{ item.url | absoluteUrl('https://saucedasecurity.com') }}"/>
+    <updated>{{ item.date | dateToRfc3339 }}</updated>
+    <id>{{ item.url | absoluteUrl('https://saucedasecurity.com') }}</id>
+    <content type="html"><![CDATA[
+      {{ item.data.summary | safe }}
+    ]]></content>
+  </entry>
+{%- endfor %}
+</feed>

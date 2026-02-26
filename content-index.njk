@@ -1,0 +1,24 @@
+---
+permalink: /content-index.json
+eleventyExcludeFromCollections: true
+---
+{
+  "posts": [
+    {%- for post in collections.posts -%}
+    {
+      "title": "{{ post.data.title | replace('"', '\\"') }}",
+      "url": "{{ post.url }}",
+      "file_ext": "{{ post.data.file_ext | default(post.data.pathExtension) | default('.html') }}"
+    }{% if not loop.last %},{% endif %}
+    {%- endfor -%}
+  ],
+  "projects": [
+    {%- for project in collections.project -%}
+    {
+      "title": "{{ project.data.title | replace('"', '\\"') }}",
+      "url": "{{ project.url }}",
+      "file_ext": "{{ project.data.file_ext | default(project.data.pathExtension) | default('.html') }}"
+    }{% if not loop.last %},{% endif %}
+    {%- endfor -%}
+  ]
+}

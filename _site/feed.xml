@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Sauceda's Security Stack</title>
+  <subtitle>Cybersecurity writeups, reflections, and projects</subtitle>
+  <link href="https://saucedasecurity.com/feed.xml" rel="self"/>
+  <link href="https://saucedasecurity.com/"/>
+  <updated>2026-02-13T00:00:00Z</updated>
+  <id>https://saucedasecurity.com/</id>
+  <author>
+    <name>Benito Sauceda</name>
+  </author>
+  <entry>
+    <title>Linksys E5350 Router Hacking</title>
+    <link href="https://saucedasecurity.com/projects/routerhacking/"/>
+    <updated>2026-02-18T00:00:00Z</updated>
+    <id>https://saucedasecurity.com/projects/routerhacking/</id>
+    <content type="html"><![CDATA[
+      A practical writeup of gaining unauthenticated root access on a consumer router via UART, demonstrating common IoT security design failures and their real-world impact.
+    ]]></content>
+  </entry>
+  <entry>
+    <title>The Making of the Logo</title>
+    <link href="https://saucedasecurity.com/posts/makingofthelogo/"/>
+    <updated>2026-02-13T00:00:00Z</updated>
+    <id>https://saucedasecurity.com/posts/makingofthelogo/</id>
+    <content type="html"><![CDATA[
+      The logo... What, Why, How? The answers to * some * of your burning questions– read all about it!
+
+    ]]></content>
+  </entry>
+  <entry>
+    <title>BACL Musings</title>
+    <link href="https://saucedasecurity.com/posts/BACLReflections/"/>
+    <updated>2026-02-03T00:00:00Z</updated>
+    <id>https://saucedasecurity.com/posts/BACLReflections/</id>
+    <content type="html"><![CDATA[
+      Cyber camps, building systems, and behind-the-scenes chaos, oh my! Here's what I learned working at the Bay Area Cyber League.
+
+    ]]></content>
+  </entry>
+  <entry>
+    <title>Sticky Keys Sidequest</title>
+    <link href="https://saucedasecurity.com/projects/sticky-keys-exploit/"/>
+    <updated>2026-01-27T00:00:00Z</updated>
+    <id>https://saucedasecurity.com/projects/sticky-keys-exploit/</id>
+    <content type="html"><![CDATA[
+      Exploiting the Windows Sticky Keys accessibility feature to gain system-level access and bypass authentication on legacy Windows systems.
+    ]]></content>
+  </entry>
+  <entry>
+    <title>CS404 - A Reflection</title>
+    <link href="https://saucedasecurity.com/posts/cs404reflections/"/>
+    <updated>2026-01-19T00:00:00Z</updated>
+    <id>https://saucedasecurity.com/posts/cs404reflections/</id>
+    <content type="html"><![CDATA[
+      A look back through my journey founding Cabrillo's first Cybersecurity club, CS404.  The rise to fame, evolution, and what it taught me.   
+
+    ]]></content>
+  </entry>
+  <entry>
+    <title>Shrek KOTH</title>
+    <link href="https://saucedasecurity.com/posts/ShrekKOTH/"/>
+    <updated>2025-06-15T00:00:00Z</updated>
+    <id>https://saucedasecurity.com/posts/ShrekKOTH/</id>
+    <content type="html"><![CDATA[
+      How I got root on the Shrek King-of-the-Hill box on TryHackMe. Lots of Shrek Imagery, viewer discretion advised. 
+
+    ]]></content>
+  </entry>
+  <entry>
+    <title>Hacker Graduation Cap</title>
+    <link href="https://saucedasecurity.com/projects/hacker-graduation-cap/"/>
+    <updated>2025-05-25T00:00:00Z</updated>
+    <id>https://saucedasecurity.com/projects/hacker-graduation-cap/</id>
+    <content type="html"><![CDATA[
+      Taking cap decoration to the next level with a custom ESP32-based wearable WiFi access point with a stylized captive portal, SD card storage, and mobile-friendly input handling.
+    ]]></content>
+  </entry>
+  <entry>
+    <title>My First Experience at BSides SF</title>
+    <link href="https://saucedasecurity.com/posts/bsidessf/"/>
+    <updated>2024-09-09T00:00:00Z</updated>
+    <id>https://saucedasecurity.com/posts/bsidessf/</id>
+    <content type="html"><![CDATA[
+      A post dedicated to my first-ever experience at Cybersecurity conference. You never forget your first, right? 
+
+    ]]></content>
+  </entry>
+</feed>

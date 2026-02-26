@@ -350,6 +350,177 @@
     .terminal-output::-webkit-scrollbar-thumb:hover {
       background: rgba(212, 82, 79, 0.5);
     }
+
+    /* File Manager Styles */
+    .file-manager-menu {
+      background-color: #0f0c0c;
+      padding: 0.3rem 1rem;
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      border-bottom: 1px solid rgba(212, 82, 79, 0.2);
+    }
+
+    .menu-item {
+      cursor: default;
+      color: var(--text-color);
+    }
+
+    .file-manager-toolbar {
+      background-color: #120f0f;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid rgba(212, 82, 79, 0.2);
+      font-size: 0.9rem;
+    }
+
+    .toolbar-path {
+      color: var(--text-color);
+    }
+
+    .file-manager-content {
+      flex: 1;
+      padding: 2rem;
+      overflow-y: auto;
+      background-color: var(--terminal-bg);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-content: flex-start;
+    }
+
+    .file-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80px;
+      cursor: pointer;
+      padding: 0.5rem;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+
+    .file-item:hover {
+      background-color: rgba(212, 82, 79, 0.15);
+    }
+
+    .file-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .file-name {
+      font-size: 0.75rem;
+      text-align: center;
+      word-break: break-word;
+      color: var(--text-color);
+    }
+
+    .file-manager-statusbar {
+      background-color: #0f0c0c;
+      padding: 0.3rem 1rem;
+      border-top: 1px solid rgba(212, 82, 79, 0.2);
+      font-size: 0.75rem;
+      color: #888;
+    }
+
+    /* Text Editor Styles */
+    .text-editor-warning {
+      background-color: rgba(212, 82, 79, 0.2);
+      border-bottom: 1px solid var(--accent-color);
+      padding: 0.5rem 1rem;
+      color: var(--accent-color);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .text-editor-content {
+      flex: 1;
+      padding: 1.5rem 2rem;
+      font-family: 'Ubuntu Mono', monospace;
+      font-size: 0.95rem;
+      background-color: var(--terminal-bg);
+      color: var(--text-color);
+      white-space: pre;
+      overflow-y: auto;
+      line-height: 1.8;
+    }
+
+    .text-editor-statusbar {
+      background-color: #0f0c0c;
+      padding: 0.3rem 1rem;
+      border-top: 1px solid rgba(212, 82, 79, 0.2);
+      font-size: 0.75rem;
+      color: #888;
+    }
+
+    /* Achievement Toast */
+    .achievement-toast {
+      position: fixed;
+      top: 80px;
+      right: -400px;
+      width: 350px;
+      background: linear-gradient(135deg, #2d1b1b 0%, #1a1010 100%);
+      border: 2px solid var(--accent-color);
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(212, 82, 79, 0.4);
+      overflow: hidden;
+      transition: right 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      z-index: 9999;
+    }
+
+    .achievement-toast.show {
+      right: 20px;
+    }
+
+    .achievement-header {
+      background-color: var(--accent-color);
+      color: #0a0e14;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .achievement-body {
+      display: flex;
+      align-items: center;
+      padding: 1.5rem;
+      gap: 1rem;
+    }
+
+    .achievement-icon {
+      font-size: 3rem;
+      line-height: 1;
+      animation: trophy-bounce 0.6s ease-in-out;
+    }
+
+    @keyframes trophy-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .achievement-text {
+      flex: 1;
+    }
+
+    .achievement-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: var(--accent-color);
+      margin-bottom: 0.3rem;
+    }
+
+    .achievement-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-color);
+    }
   </style>
 </head>
 
@@ -407,7 +578,7 @@
   <div class="desktop">
     <!-- Desktop Icons -->
     <div class="desktop-icons">
-      <div class="desktop-icon">
+      <div class="desktop-icon" onclick="openTrash()">
         <div class="desktop-icon-img">🗑️</div>
         <div class="desktop-icon-label">trash</div>
       </div>
@@ -474,26 +645,38 @@
 ⠀⠀⠀⠀⠈⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀</div>
 
         <div class="info-grid">
-          <span class="info-label">user:</span>
-          <span class="info-value">Benito Sauceda</span>
+          <span class="info-label">current_user:</span>
+          <span class="info-value">Benito Sauceda AKA 'Paperclips Vinny'</span>
           
-          <span class="info-label">host:</span>
+          <span class="info-label">current_host:</span>
           <span class="info-value">saucedasecurity.com</span>
           
-          <span class="info-label">os:</span>
-          <span class="info-value">Kali Linux (mentally)</span>
+          <span class="info-label">top_OS:</span>
+          <span class="info-value">Windows, Kali, Ubuntu</span>
           
-          <span class="info-label">role:</span>
-          <span class="info-value">Cybersecurity Student</span>
+<<<<<<< HEAD
+          <span class="info-label">user_type:</span>
+          <span class="info-value">College Student</span>
           
-          <span class="info-label">focus:</span>
-          <span class="info-value">Offensive Security</span>
+          <span class="info-label">specialization:</span>
+          <span class="info-value">red team/offsec</span>
+=======
+          <span class="info-label">user_type</span>
+          <span class="info-value">College Student</span>
           
-          <span class="info-label">interests:</span>
-          <span class="info-value">IR, CTFs, Labs, Writing</span>
+          <span class="info-label">specialization</span>
+          <span class="info-value">red team/Offsec</span>
+>>>>>>> 0477cf5 (Added secret achievement, various terminal fixes, etc)
           
-          <span class="info-label">shell:</span>
-          <span class="info-value">zsh</span>
+          <span class="info-label">lab_focus:</span>
+          <span class="info-value">linux internals, firmware, exploit paths</span>
+          
+          <span class="info-label">favorite_quote:</span>
+<<<<<<< HEAD
+          <span class="info-value">"Are you a 0 or a 1?"</span>
+=======
+          <span class="info-value">"Are you a one, or a zero?"</span>
+>>>>>>> 0477cf5 (Added secret achievement, various terminal fixes, etc)
         </div>
       </div>
 
@@ -556,51 +739,89 @@
     let commandHistory = [];
     let historyIndex = -1;
 
-    const fileSystem = {
+    // Dynamic filesystem - will be populated from JSON
+    let fileSystem = {
       '~': {
         type: 'directory',
         contents: {
           'posts': { 
             type: 'directory',
-            contents: {
-              'BACLReflections.tmp': { type: 'file', url: '/posts/BACLReflections/' },
-              'cs404reflections.html': { type: 'file', url: '/posts/cs404reflections/' },
-              'ShrekKOTH.bin': { type: 'file', url: '/posts/ShrekKOTH/' },
-              'hackergradcap.html': { type: 'file', url: '/posts/hackergradcap/' },
-              'bsidessf.rnd': { type: 'file', url: '/posts/bsidessf/' },
-              'StickyKeysExploit.exe': { type: 'file', url: '/posts/StickyKeysExploit/' }
-            }
+            contents: {}
           },
           'projects': { 
             type: 'directory',
-            contents: {
-              'hackergradcap.html': { type: 'file', url: '/posts/hackergradcap/' },
-              'StickyKeysExploit.exe': { type: 'file', url: '/posts/StickyKeysExploit/' }
-            }
+            contents: {}
           },
-          'about.txt': { type: 'file', url: '/about.html' },
-          'contact.txt': { type: 'file', url: '/contact.html' }
+          'about.txt': { type: 'file', url: '/about/' },
+          'contact.txt': { type: 'file', url: '/contact/' }
         }
       },
       '~/posts': {
         type: 'directory',
-        contents: {
-          'BACLReflections.tmp': { type: 'file', url: '/posts/BACLReflections/' },
-          'cs404reflections.html': { type: 'file', url: '/posts/cs404reflections/' },
-          'ShrekKOTH.bin': { type: 'file', url: '/posts/ShrekKOTH/' },
-          'hackergradcap.html': { type: 'file', url: '/posts/hackergradcap/' },
-          'bsidessf.rnd': { type: 'file', url: '/posts/bsidessf/' },
-          'StickyKeysExploit.exe': { type: 'file', url: '/posts/StickyKeysExploit/' }
-        }
+        contents: {}
       },
       '~/projects': {
         type: 'directory',
-        contents: {
-          'hackergradcap.html': { type: 'file', url: '/posts/hackergradcap/' },
-          'StickyKeysExploit.exe': { type: 'file', url: '/posts/StickyKeysExploit/' }
-        }
+        contents: {}
       }
     };
+
+    // Fetch content dynamically
+    async function loadContent() {
+      try {
+        const response = await fetch('/content-index.json');
+        
+        // Check if response is ok
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // Helper function to extract filename from URL path
+        function generateFilename(url, ext) {
+          // Extract the path segment from URL
+          // e.g., "/posts/BACLReflections/" -> "BACLReflections"
+          const pathSegments = url.split('/').filter(Boolean);
+          const slug = pathSegments[pathSegments.length - 1];
+          
+          return slug + ext;
+        }
+        
+        // Populate posts
+        data.posts.forEach(post => {
+          const filename = generateFilename(post.url, post.file_ext);
+          fileSystem['~'].contents.posts.contents[filename] = {
+            type: 'file',
+            url: post.url
+          };
+          fileSystem['~/posts'].contents[filename] = {
+            type: 'file',
+            url: post.url
+          };
+        });
+        
+        // Populate projects
+        data.projects.forEach(project => {
+          const filename = generateFilename(project.url, project.file_ext);
+          fileSystem['~'].contents.projects.contents[filename] = {
+            type: 'file',
+            url: project.url
+          };
+          fileSystem['~/projects'].contents[filename] = {
+            type: 'file',
+            url: project.url
+          };
+        });
+        
+      } catch (error) {
+        console.error('Failed to load content:', error);
+        addOutput('<span class="error">Note: Dynamic content loading failed. Some posts/projects may not appear.</span>');
+      }
+    }
+
+    // Load content on page load
+    loadContent();
 
     const commands = {
       help: () => {
@@ -610,14 +831,33 @@
   cat [file]      - view file (opens in browser)
   pwd             - print working directory
   clear           - clear terminal
-  go              - navigate to current location in website
   help            - show this help message`;
       },
       
-      ls: () => {
-        const current = fileSystem[currentPath];
+      ls: (args) => {
+        let targetPath = currentPath;
+        
+        // If directory argument provided, use that instead
+        if (args[0]) {
+          // Handle absolute paths starting with /
+          if (args[0].startsWith('/')) {
+            // Convert /posts to ~/posts, /projects to ~/projects
+            targetPath = '~' + args[0];
+          } else if (args[0] === '~' || args[0] === '/') {
+            targetPath = '~';
+          } else if (args[0] === '..') {
+            targetPath = '~';
+          } else if (args[0].startsWith('~/')) {
+            targetPath = args[0];
+          } else {
+            // Relative path
+            targetPath = currentPath === '~' ? `~/${args[0]}` : `${currentPath}/${args[0]}`;
+          }
+        }
+        
+        const current = fileSystem[targetPath];
         if (!current || !current.contents) {
-          return 'ls: cannot access: No such directory';
+          return `ls: cannot access '${args[0] || currentPath}': No such file or directory`;
         }
         
         let result = '';
@@ -665,6 +905,12 @@
           return 'cat: missing file operand';
         }
         
+        // Easter egg for ~/.bash_history
+        if (args[0] === '~/.bash_history' || args[0] === '.bash_history') {
+          showAchievement();
+          return 'bash: .bash_history: Permission denied (nice try though 😏)';
+        }
+        
         const current = fileSystem[currentPath];
         if (!current || !current.contents || !current.contents[args[0]]) {
           return `cat: ${args[0]}: No such file`;
@@ -686,19 +932,6 @@
       clear: () => {
         output.innerHTML = '';
         return '';
-      },
-      
-      go: () => {
-        let url = '/';
-        
-        if (currentPath === '~/posts') {
-          url = '/posts/';
-        } else if (currentPath === '~/projects') {
-          url = '/projects/';
-        }
-        
-        window.location.href = url;
-        return `Navigating to ${url}...`;
       }
     };
 
@@ -785,6 +1018,155 @@
 
     // Initial focus
     input.focus();
+
+    // Trash viewer functions
+    function openTrash() {
+      document.getElementById('trash-viewer').style.display = 'flex';
+    }
+
+    function closeTrash() {
+      document.getElementById('trash-viewer').style.display = 'none';
+    }
+
+    function minimizeTrash() {
+      const trash = document.getElementById('trash-viewer');
+      trash.style.display = 'none';
+      setTimeout(() => {
+        trash.style.display = 'flex';
+      }, 300);
+    }
+
+    function openTodoList() {
+      document.getElementById('todo-viewer').style.display = 'flex';
+    }
+
+    function closeTodo() {
+      document.getElementById('todo-viewer').style.display = 'none';
+    }
+
+    function minimizeTodo() {
+      const todo = document.getElementById('todo-viewer');
+      todo.style.display = 'none';
+      setTimeout(() => {
+        todo.style.display = 'flex';
+      }, 300);
+    }
+
+function showAchievement() {
+  const toast = document.getElementById('achievement-toast');
+  const sound = document.getElementById('achievement-sound');
+
+  toast.classList.add('show');
+
+  // Reset + play sound
+  if (sound) {
+    sound.currentTime = 0;
+    sound.volume = 0.6; // tweak to taste
+    sound.play().catch(() => {
+      // Browser blocked autoplay — silently fail
+    });
+  }
+
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 5000);
+}
   </script>
+
+  <!-- Trash Viewer Window -->
+  <div id="trash-viewer" class="terminal-container" style="display: none; z-index: 1001;">
+    <div class="terminal-header">
+      <div class="terminal-title">~/.trash - File Manager</div>
+      <div class="terminal-buttons-right">
+        <div class="terminal-button btn-minimize" onclick="minimizeTrash()">−</div>
+        <div class="terminal-button btn-maximize">□</div>
+        <div class="terminal-button btn-close" onclick="closeTrash()">×</div>
+      </div>
+    </div>
+
+    <div class="file-manager-menu">
+      <span class="menu-item">File</span>
+      <span class="menu-item">Edit</span>
+      <span class="menu-item">View</span>
+      <span class="menu-item">Sort</span>
+      <span class="menu-item">Go</span>
+      <span class="menu-item">Tools</span>
+    </div>
+
+    <div class="file-manager-toolbar">
+      <div class="toolbar-path">
+        <span style="color: var(--prompt-color);">📁</span> ~/.trash/
+      </div>
+    </div>
+
+    <div class="file-manager-content">
+      <div class="file-item" ondblclick="openTodoList()">
+        <div class="file-icon">
+          <svg width="48" height="48" viewBox="0 0 48 48">
+            <rect x="10" y="6" width="28" height="36" fill="#f5f5dc" stroke="#8b6f5e" stroke-width="1.5"/>
+            <line x1="14" y1="14" x2="34" y2="14" stroke="#3a1616" stroke-width="1.2"/>
+            <line x1="14" y1="20" x2="34" y2="20" stroke="#3a1616" stroke-width="1.2"/>
+            <line x1="14" y1="26" x2="34" y2="26" stroke="#3a1616" stroke-width="1.2"/>
+            <line x1="14" y1="32" x2="28" y2="32" stroke="#3a1616" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <div class="file-name">todo.txt</div>
+      </div>
+    </div>
+
+    <div class="file-manager-statusbar">
+      1 item
+    </div>
+  </div>
+
+  <!-- Todo List Text Editor Window -->
+  <div id="todo-viewer" class="terminal-container" style="display: none; z-index: 1002;">
+    <div class="terminal-header">
+      <div class="terminal-title">todo.txt - Text Editor</div>
+      <div class="terminal-buttons-right">
+        <div class="terminal-button btn-minimize" onclick="minimizeTodo()">−</div>
+        <div class="terminal-button btn-maximize">□</div>
+        <div class="terminal-button btn-close" onclick="closeTodo()">×</div>
+      </div>
+    </div>
+
+    <div class="file-manager-menu">
+      <span class="menu-item">File</span>
+      <span class="menu-item">Edit</span>
+      <span class="menu-item">View</span>
+      <span class="menu-item">Search</span>
+      <span class="menu-item">Tools</span>
+      <span class="menu-item">Help</span>
+    </div>
+
+    <div class="text-editor-warning">
+      ⚠️ Warning: This file is in Trash and may be permanently deleted
+    </div>
+
+    <div class="text-editor-content"><span style="text-decoration: line-through;">[ ] Make a to-do list</span>
+[ ] Back up the back ups
+[ ] Check if "Prod" is actually prod
+[ ] Stop leaving reverse shells in ~/.bash_history!</div>
+
+    <div class="text-editor-statusbar">
+      Modified | Line 4, Col 48 | UTF-8 | ~/.trash/todo.txt
+    </div>
+  </div>
+
+  <!-- Achievement Toast -->
+  <div id="achievement-toast" class="achievement-toast">
+    <div class="achievement-header">Achievement Unlocked!</div>
+    <div class="achievement-body">
+      <div class="achievement-icon">🏆</div>
+      <div class="achievement-text">
+        <div class="achievement-title">Threat Hunter</div>
+        <div class="achievement-subtitle">Tried to snoop into Benito's Bash History- NICE!</div>
+      </div>
+    </div>
+  </div>
+
+  <audio id="achievement-sound" preload="auto">
+  <source src="/Assets/sounds/achievement.mp3" type="audio/mpeg">
+</audio>
 </body>
 </html>
