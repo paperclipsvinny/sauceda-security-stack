@@ -130,7 +130,9 @@ title: About
     <h2>> How I think about security</h2>
 
     <p>
-      To me, security is about patterns. Understanding systems well enough to notice when something feels off. Offensive security is so interesting to me because it's all about being creative and methodical at the same time- you're finding something others missed. I'm also interested in the defensive side of the story, though- what breaks, why it breaks, and how people miss it. Especially nowadays, with modern AI advancements, it's even easier for organizations to throw LLMs at their problems, which often miss contextualization and can lead to huge knowledge, and thus, security gaps. On the other side of the problem is script kiddies that can just 'point and shoot' exploits at systems, without understanding what's happening. I DO use AI in my learning, but not without understanding what's going on. I don't use AI in the creation of my posts. Writing is part of the learning process for me. If I can't explain something clearly, I usually don't understand it as well as I think I do. The best students are teachers.
+      To me, security is fundamentally about pattern-recognition; understanding systems well enough to notice when something feels off. Deep knowledge of both attack tactics and techniques and defensive tooling and infastructure is what enables a good security team to become great. I find Offensive security fascinating because it's all about being creative and methodical at the same time- you're finding something other people missed. However, I'm also interested in the defensive side of the story- what breaks, why it breaks, and how people miss it. Especially nowadays, with the AI 'boom', it's increasingly common for organizations to throw AI systems at their security problems, which often lack contextualization and can lead to knowledge gaps— and ultimately, security gaps. On the other side of the problem is script kiddies that can just 'point and shoot' exploits at systems, without understanding what's happening. I use AI in my learning process, but deliberately and warily. To me, AI is a supplement, not a substitution, for understanding. Writing, in particular, is part of the learning process for me. If I can't explain something clearly, I usually don't understand it as well as I think I do.
+
+      If you can explain something clearly, you truely understand it. And when you teach it or explain it to someone else, you're forced to *really* understand it. Especially in Cybersecurity, where the boundaries are being pushed every day, the best teachers are students who never stopped learning. 
     </p>
 
     <h2>> What you'll find here</h2>
@@ -153,9 +155,9 @@ title: About
     </p>
 
     <h2>Who is Paperclips Vinny?</h2>
-    <p>If you've read this far, you deserve the truth. 'Paperclips Vinny' is me, and I am 'paperclips vinny'. The username started as a screen name (it's a reference to a character in the movie Atlantis) to maintain my privacy while exploring the many facets of cybersecurity, and just slowly became my defacto handle. 
+    <p>If you've read this far, you deserve the truth. 'Paperclips Vinny' is me, and I am 'paperclips vinny'. The username started as a screen name (it's a reference to a character in the movie Atlantis) to maintain my privacy while exploring the many facets of cybersecurity, and just slowly became my defacto online handle. 
 
-    Anyways, have fun exploring this website and I hope you find what you're looking for. <span class="end-of-article">&lt;/&gt;</span>
+    Anyways, have fun exploring this website and I hope you find what you're looking for. Happy Hacking! <span class="end-of-article">&lt;/&gt;</span>
 
   </article>
 </main>
