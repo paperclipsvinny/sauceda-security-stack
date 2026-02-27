@@ -28,7 +28,7 @@ Specifically, from Mike’s logo, his Yggdrasil (Tree of Life) concept– struct
 Read more about ShellSharks And Mike’s logo creation process here:
 <a href="https://shellsharks.com/">https://shellsharks.com/</a>
 
-
+## Iconography
 A major influence was one of my favorite movies growing up, Treasure Planet– Disney’s sci-fi adaptation of Treasure Island by Robert Louis Stevenson.
 
 *(Spoilers ahead.)* In the film, the legendary pirate Captain Flint is able to amass a vast fortune by using a portal that opens to remote destinations across the galaxy, and stores it all on Treasure Planet– ‘the loot of a thousand worlds’.
@@ -52,6 +52,8 @@ In my logo, that portal represents knowledge, while each planet symbolizes a dom
 </div>
 
 The smaller brown planet represents low-level and hardware hacking, marked with a microprocessor and PCB patterns to show my interest in hardware and low level systems. Lastly, The larger orange planet stands for infrastructure and defensive security, featuring a shield with an eye to represent vigilance and protection. I would have made this blue team planet actually blue, but I wanted to keep the clean aesthetic by using a matching color palette for my website’s color scheme. 
+
+## Closing
 
 Anyways, I had a blast putting this logo together, and I'm quite satisfied with how it came out. Huge shoutout to <a href="https://www.photopea.com/" >Photopea.com</a> for allowing users like me free access to a professional-level toolset.
 <span class="end-of-article">&lt;/&gt;</span>

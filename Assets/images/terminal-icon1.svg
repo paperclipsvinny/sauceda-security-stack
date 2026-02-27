@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Black rounded rectangle background -->
+  <rect width="32" height="32" rx="0" ry="0" fill="#000000"/>
+  <!-- White line at top -->
+<line x1="0" y1="0" x2="110" y2="0" style="stroke:#ffffff; stroke-width:8" />
+  <!-- >_ prompt in white -->
+  <text
+    x="2"
+    y="14"
+    font-family="monospace"
+    font-size="14"
+    font-weight="bold"
+    fill="#ffffff"
+    letter-spacing="-1"
+  >&gt;_</text>
+</svg>

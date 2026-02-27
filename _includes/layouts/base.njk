@@ -32,5 +32,13 @@
   {% include "partials/footer.njk" %}
 
   {% block scripts %}{% endblock %}
+
+<script>
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.altKey && e.key === 't') {
+      window.location.href = '/terminal';
+    }
+  });
+</script>
 </body>
 </html>

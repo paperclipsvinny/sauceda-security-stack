@@ -1,7 +1,6 @@
 ---
 layout: layouts/base.njk
 ---
-
 <article>
   <h1>{{ title }}</h1>
 
@@ -24,6 +23,29 @@ layout: layouts/base.njk
     </div>
     {% endif %}
   </div>
+    <aside class="toc">
+    <span class="toc-title">Table of Contents</span>
+    <ul id="toc-list"></ul>
+  </aside>
 
   {{ content | safe }}
 </article>
+
+<script>
+  const headings = document.querySelectorAll('main h1, main h2, main h3');
+  const tocList = document.getElementById('toc-list');
+
+  headings.forEach((heading, i) => {
+    if (!heading.id) heading.id = 'heading-' + i;
+
+    const li = document.createElement('li');
+    li.classList.add('toc-' + heading.tagName.toLowerCase());
+
+    const a = document.createElement('a');
+    a.href = '#' + heading.id;
+    a.textContent = heading.textContent;
+
+    li.appendChild(a);
+    tocList.appendChild(li);
+  });
+</script>

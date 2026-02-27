@@ -16,7 +16,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
-}
+} 
 
 /* ===== HEADER / NAV ===== */
 
@@ -56,6 +56,16 @@ nav ul li a:hover {
   text-decoration: underline;
 }
 
+header {
+  position: relative;
+}
+
+.terminal-icon {
+  position: absolute;
+  left: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
 /* ===== MAIN LAYOUT ===== */
 
 main {

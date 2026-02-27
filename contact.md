@@ -105,15 +105,30 @@ title: Contact
 
     <div class="terminal-line">
       <span class="terminal-prompt">></span>
-      <span class="terminal-label">linkedin:</span>
-      <span class="terminal-value"><a href="https://www.linkedin.com/in/benito-s626/" target="_blank" rel="noopener noreferrer">linkedin.com/in/benito-s626</a></span>
+      <span class="terminal-label">discord:</span>
+      <span class="terminal-value">paperclips.vinny</span>
+    </div>
+    <br>
+
+    <div class="terminal-header">
+      $ cat social_media.txt
     </div>
 
     <div class="terminal-line">
       <span class="terminal-prompt">></span>
-      <span class="terminal-label">discord:</span>
-      <span class="terminal-value">paperclips.vinny</span>
+      <span class="terminal-label">GitHub:</span>
+      <span class="terminal-value"><a href="mailto:https://github.com/paperclipsvinny">github.com/paperclipsvinny/</a></span>
     </div>
+
+    <div class="terminal-line">
+      <span class="terminal-prompt">></span>
+      <span class="terminal-label">linkedin:</span>
+      <span class="terminal-value"><a href="https://www.linkedin.com/in/benito-sauceda/" target="_blank" rel="noopener noreferrer">linkedin.com/in/benito-sauceda</a></span>
+    </div>
+    <br>
+    *NOTE: I infrequently check LinkedIn messages, but you're welcome to contact me there as well. 
+
+
 
     <div class="section-break">
       <div class="terminal-header">
@@ -122,72 +137,31 @@ title: Contact
 
       <div class="terminal-line">
         <span class="terminal-label">fingerprint:</span>
-        <span class="terminal-value">60B5 6A3D 117E 88D6 59D5 DB58 A113 0327 F1B9 1560</span>
+        <span class="terminal-value">E37279F186D09234FE15F3A727FDAED2D5FA0158</span>
       </div>
 
       <div class="pgp-block">
-        <pre>-----BEGIN PGP PUBLIC KEY BLOCK-----
+        <pre> -----BEGIN PGP PUBLIC KEY BLOCK-----
+mDMEaaFybxYJKwYBBAHaRw8BAQdAnLXqtNiSgCnFQOmx/BMsIgCHCWOaaey83KaL
+5hkKTOS0KEJlbml0byBTYXVjZWRhIDxiZW5pdG9zYXVjZWRhQHByb3Rvbi5tZT6I
+rwQTFgoAVxYhBONyefGG0JI0/hXzpyf9rtLV+gFYBQJpoXJvGxSAAAAAAAQADm1h
+bnUyLDIuNSsxLjExLDIsMQIbAwULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAK
+CRAn/a7S1foBWOk9AP973oAIjyi/4/RC8wtrgGg1VaEnrk/nJ5LBPiZk78czyQEA
+v2kFpYDCcDqf7H2mA0jOfn6biJyBaMeV4tXvq4oV0AS4OARpoXJvEgorBgEEAZdV
+AQUBAQdAwwcrN+ASfOV2hSClw1en2Ds/W5Da3b9CzmCZp/QFZS0DAQgHiJQEGBYK
+ADwWIQTjcnnxhtCSNP4V86cn/a7S1foBWAUCaaFybxsUgAAAAAAEAA5tYW51Miwy
+LjUrMS4xMSwyLDECGwwACgkQJ/2u0tX6AVhBCAD/SXu7KlCzROc3R1d5gwq3iDfN
+XPF0mQ1ctUOoBS+y0eQA/1eyD1ap4AYhxR2JP5GBKWIxyr+mbT+d7UfCLXVT5kwD
+=wjqF
+-----END PGP PUBLIC KEY BLOCK-----
 
-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
-Btt0PXabpCVFyOoR
-=Md5V
------END PGP PUBLIC KEY BLOCK-----</pre>
+</pre>
       </div>
-
       <div class="copy-hint">
-        (select and copy, or save as .asc file)
+          (select and copy, or save as .asc file) | 
+        <a class="copy-hint" href="/Assets/pgp/public-key.asc" download>
+          Download public key (.asc)
+        </a>
       </div>
     </div>
   </div>
