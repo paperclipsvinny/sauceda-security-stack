@@ -286,3 +286,59 @@ span.end-of-article {
   font-weight: bold;
 }
 
+/* ===== POST NAVIGATION ===== */
+.post-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.post-nav-left,
+.post-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.post-nav-btn {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-family: inherit;
+  background: transparent;
+  transition: background 0.15s, color 0.15s;
+  cursor: pointer;
+}
+
+.post-nav-btn:hover {
+  background: var(--accent-color);
+  color: var(--bg-color);
+  text-decoration: none;
+}
+
+/* Greyed out = no link, just a span */
+.post-nav-disabled {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: default;
+  user-select: none;
+}
+
+.post-nav-divider {
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 0.1rem;
+}
+```
+

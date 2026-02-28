@@ -50,6 +50,39 @@ layout: layouts/base.njk
     <ul id="toc-list"></ul>
   </aside>
   {{ content | safe }}
+{# ── Post Navigation ── #}
+{% set postList = collections.posts %}
+{% set currentIndex = 0 %}
+{% for p in postList %}
+  {% if p.url == page.url %}
+    {% set currentIndex = loop.index0 %}
+  {% endif %}
+{% endfor %}
+
+{% set newerPost = postList[currentIndex - 1] if currentIndex > 0 else null %}
+{% set olderPost = postList[currentIndex + 1] if currentIndex < (postList.length - 1) else null %}
+
+<nav class="post-nav">
+  <div class="post-nav-left">
+    <a href="/posts/" class="post-nav-btn">← /Posts</a>
+  </div>
+
+  <div class="post-nav-right">
+    {% if newerPost %}
+      <a href="{{ newerPost.url }}" class="post-nav-btn">[Newer]</a>
+    {% else %}
+      <span class="post-nav-btn post-nav-disabled">← Newer</span>
+    {% endif %}
+
+    <span class="post-nav-divider">|</span>
+
+    {% if olderPost %}
+      <a href="{{ olderPost.url }}" class="post-nav-btn">[Older]</a>
+    {% else %}
+      <span class="post-nav-btn post-nav-disabled">Older →</span>
+    {% endif %}
+  </div>
+</nav>
 </article>
 
 <script>

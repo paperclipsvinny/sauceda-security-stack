@@ -691,7 +691,6 @@
       const monthName = months[now.getMonth()];
       const dayNum = now.getDate();
       
-      // Convert to Pacific Time
       const pacificTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
       let hours = pacificTime.getHours();
       const minutes = pacificTime.getMinutes().toString().padStart(2, '0');
@@ -704,12 +703,10 @@
     updateTime();
     setInterval(updateTime, 1000);
 
-    // Desktop icon navigation
     function navigateTo(url) {
       window.location.href = url;
     }
 
-    // Terminal minimize
     function minimizeTerminal() {
       const terminal = document.querySelector('.terminal-container');
       terminal.style.display = 'none';
@@ -718,7 +715,6 @@
       }, 300);
     }
 
-    // Terminal logic
     const input = document.getElementById('terminal-input');
     const output = document.getElementById('output');
     const pathDisplay = document.getElementById('current-path');
@@ -727,79 +723,42 @@
     let commandHistory = [];
     let historyIndex = -1;
 
-    // Dynamic filesystem - will be populated from JSON
     let fileSystem = {
       '~': {
         type: 'directory',
         contents: {
-          'posts': { 
-            type: 'directory',
-            contents: {}
-          },
-          'projects': { 
-            type: 'directory',
-            contents: {}
-          },
+          'posts': { type: 'directory', contents: {} },
+          'projects': { type: 'directory', contents: {} },
           'about.txt': { type: 'file', url: '/about/' },
           'contact.txt': { type: 'file', url: '/contact/' }
         }
       },
-      '~/posts': {
-        type: 'directory',
-        contents: {}
-      },
-      '~/projects': {
-        type: 'directory',
-        contents: {}
-      }
+      '~/posts': { type: 'directory', contents: {} },
+      '~/projects': { type: 'directory', contents: {} }
     };
 
-    // Fetch content dynamically
     async function loadContent() {
       try {
         const response = await fetch('/content-index.json');
-        
-        // Check if response is ok
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const data = await response.json();
         
-        // Helper function to extract filename from URL path
         function generateFilename(url, ext) {
-          // Extract the path segment from URL
-          // e.g., "/posts/BACLReflections/" -> "BACLReflections"
           const pathSegments = url.split('/').filter(Boolean);
           const slug = pathSegments[pathSegments.length - 1];
-          
           return slug + ext;
         }
         
-        // Populate posts
         data.posts.forEach(post => {
           const filename = generateFilename(post.url, post.file_ext);
-          fileSystem['~'].contents.posts.contents[filename] = {
-            type: 'file',
-            url: post.url
-          };
-          fileSystem['~/posts'].contents[filename] = {
-            type: 'file',
-            url: post.url
-          };
+          fileSystem['~'].contents.posts.contents[filename] = { type: 'file', url: post.url };
+          fileSystem['~/posts'].contents[filename] = { type: 'file', url: post.url };
         });
         
-        // Populate projects
         data.projects.forEach(project => {
           const filename = generateFilename(project.url, project.file_ext);
-          fileSystem['~'].contents.projects.contents[filename] = {
-            type: 'file',
-            url: project.url
-          };
-          fileSystem['~/projects'].contents[filename] = {
-            type: 'file',
-            url: project.url
-          };
+          fileSystem['~'].contents.projects.contents[filename] = { type: 'file', url: project.url };
+          fileSystem['~/projects'].contents[filename] = { type: 'file', url: project.url };
         });
         
       } catch (error) {
@@ -808,7 +767,6 @@
       }
     }
 
-    // Load content on page load
     loadContent();
 
     const commands = {
@@ -819,17 +777,16 @@
   cat [file]      - view file (opens in browser)
   pwd             - print working directory
   clear           - clear terminal
-  help            - show this help message`;
+  help            - show this help message
+
+  *tip of the day: to return to this terminal from within the site, press Ctrl+Alt+T or click >_ in the top left`;
       },
       
       ls: (args) => {
         let targetPath = currentPath;
         
-        // If directory argument provided, use that instead
         if (args[0]) {
-          // Handle absolute paths starting with /
           if (args[0].startsWith('/')) {
-            // Convert /posts to ~/posts, /projects to ~/projects
             targetPath = '~' + args[0];
           } else if (args[0] === '~' || args[0] === '/') {
             targetPath = '~';
@@ -838,7 +795,6 @@
           } else if (args[0].startsWith('~/')) {
             targetPath = args[0];
           } else {
-            // Relative path
             targetPath = currentPath === '~' ? `~/${args[0]}` : `${currentPath}/${args[0]}`;
           }
         }
@@ -878,9 +834,14 @@
         }
         
         const targetPath = currentPath === '~' ? `~/${args[0]}` : `${currentPath}/${args[0]}`;
+
+        // Case-insensitive directory lookup
+        const matchedPath = Object.keys(fileSystem).find(
+          key => key.toLowerCase() === targetPath.toLowerCase()
+        );
         
-        if (fileSystem[targetPath] && fileSystem[targetPath].type === 'directory') {
-          currentPath = targetPath;
+        if (matchedPath && fileSystem[matchedPath].type === 'directory') {
+          currentPath = matchedPath;
           pathDisplay.textContent = currentPath;
           return '';
         }
@@ -893,25 +854,33 @@
           return 'cat: missing file operand';
         }
         
-        // Easter egg for ~/.bash_history
         if (args[0] === '~/.bash_history' || args[0] === '.bash_history') {
           showAchievement();
           return 'bash: .bash_history: Permission denied (nice try though 😏)';
         }
         
         const current = fileSystem[currentPath];
-        if (!current || !current.contents || !current.contents[args[0]]) {
+        if (!current || !current.contents) {
+          return `cat: ${args[0]}: No such file`;
+        }
+
+        // Case-insensitive file lookup
+        const matchedKey = Object.keys(current.contents).find(
+          key => key.toLowerCase() === args[0].toLowerCase()
+        );
+        
+        if (!matchedKey) {
           return `cat: ${args[0]}: No such file`;
         }
         
-        const file = current.contents[args[0]];
+        const file = current.contents[matchedKey];
         if (file.type === 'directory') {
           return `cat: ${args[0]}: Is a directory`;
         }
         
         if (file.url) {
           window.location.href = file.url;
-          return `Opening ${args[0]}...`;
+          return `Opening ${matchedKey}...`;
         }
         
         return 'File has no content';
@@ -944,15 +913,11 @@
       
       addOutput(cmdLine, true);
       
-      if (cmd === '') {
-        return;
-      }
+      if (cmd === '') return;
       
       if (commands[cmd]) {
         const result = commands[cmd](args);
-        if (result) {
-          addOutput(result);
-        }
+        if (result) addOutput(result);
       } else {
         addOutput(`<span class="error">Command not found: ${cmd}</span>`);
         addOutput('Type "help" for available commands');
@@ -986,8 +951,9 @@
         const current = fileSystem[currentPath];
         if (current && current.contents) {
           const partial = input.value.split(' ').pop();
-          const matches = Object.keys(current.contents).filter(item => 
-            item.startsWith(partial)
+          // Case-insensitive tab completion
+          const matches = Object.keys(current.contents).filter(item =>
+            item.toLowerCase().startsWith(partial.toLowerCase())
           );
           
           if (matches.length === 1) {
@@ -999,15 +965,9 @@
       }
     });
 
-    // Keep input focused
-    document.addEventListener('click', () => {
-      input.focus();
-    });
-
-    // Initial focus
+    document.addEventListener('click', () => { input.focus(); });
     input.focus();
 
-    // Trash viewer functions
     function openTrash() {
       document.getElementById('trash-viewer').style.display = 'flex';
     }
@@ -1019,9 +979,7 @@
     function minimizeTrash() {
       const trash = document.getElementById('trash-viewer');
       trash.style.display = 'none';
-      setTimeout(() => {
-        trash.style.display = 'flex';
-      }, 300);
+      setTimeout(() => { trash.style.display = 'flex'; }, 300);
     }
 
     function openTodoList() {
@@ -1035,30 +993,20 @@
     function minimizeTodo() {
       const todo = document.getElementById('todo-viewer');
       todo.style.display = 'none';
-      setTimeout(() => {
-        todo.style.display = 'flex';
-      }, 300);
+      setTimeout(() => { todo.style.display = 'flex'; }, 300);
     }
 
-function showAchievement() {
-  const toast = document.getElementById('achievement-toast');
-  const sound = document.getElementById('achievement-sound');
-
-  toast.classList.add('show');
-
-  // Reset + play sound
-  if (sound) {
-    sound.currentTime = 0;
-    sound.volume = 0.6; // tweak to taste
-    sound.play().catch(() => {
-      // Browser blocked autoplay — silently fail
-    });
-  }
-
-  setTimeout(() => {
-    toast.classList.remove('show');
-  }, 5000);
-}
+    function showAchievement() {
+      const toast = document.getElementById('achievement-toast');
+      const sound = document.getElementById('achievement-sound');
+      toast.classList.add('show');
+      if (sound) {
+        sound.currentTime = 0;
+        sound.volume = 0.6;
+        sound.play().catch(() => {});
+      }
+      setTimeout(() => { toast.classList.remove('show'); }, 5000);
+    }
   </script>
 
   <!-- Trash Viewer Window -->
@@ -1102,9 +1050,7 @@ function showAchievement() {
       </div>
     </div>
 
-    <div class="file-manager-statusbar">
-      1 item
-    </div>
+    <div class="file-manager-statusbar">1 item</div>
   </div>
 
   <!-- Todo List Text Editor Window -->
@@ -1154,7 +1100,7 @@ function showAchievement() {
   </div>
 
   <audio id="achievement-sound" preload="auto">
-  <source src="/Assets/sounds/achievement.mp3" type="audio/mpeg">
-</audio>
+    <source src="/Assets/sounds/achievement.mp3" type="audio/mpeg">
+  </audio>
 </body>
 </html>

@@ -31,20 +31,86 @@ nav a.active {
 }
 </style>
 
+<style>
+header {
+  width: 100%;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  gap: 1rem;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+
+.logo {
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.terminal-icon-btn {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  transition: color 0.2s;
+}
+
+.terminal-icon-btn:hover {
+  color: var(--accent-color);
+}
+
+.terminal-icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+header nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+header nav a {
+  text-decoration: none;
+}
+
+nav a.active {
+  border-bottom: 2px solid currentColor;
+}
+</style>
+
 <header>
   <nav>
-    <div class="logo">Sauceda's Security Stack</div>
+    <div class="nav-left">
+      <a href="/terminal/" class="terminal-icon-btn" title="Terminal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 17 10 11 4 5"></polyline>
+          <line x1="12" y1="19" x2="20" y2="19"></line>
+        </svg>
+      </a>
+      <div class="logo">Sauceda's Security Stack</div>
+    </div>
     <ul>
       <li><a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a></li>
       <li><a href="/posts/" {% if page.url.startsWith("/posts") %}class="active"{% endif %}>Posts</a></li>
       <li><a href="/projects/" {% if page.url.startsWith("/projects") %}class="active"{% endif %}>Projects</a></li>
       <li><a href="/about/" {% if page.url == "/about/" %}class="active"{% endif %}>About</a></li>
       <li><a href="/contact/" {% if page.url == "/contact/" %}class="active"{% endif %}>Contact</a></li>
-
-
     </ul>
   </nav>
-        <a href="/terminal" class="terminal-icon">
-        <img src="/Assets/images/terminal-icon1.svg" alt="Terminal icon" />
-      </a>
 </header>
