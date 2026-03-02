@@ -1,87 +1,84 @@
-    :root {
-      --bg-color: #4a1e1e;
-      --text-color: #f2eaea;
-      --accent-color: #b35a5a;
-      --nav-bg: #3a1616;
-    }
+:root {
+  --bg-color: #4a1e1e;
+  --text-color: #f2eaea;
+  --accent-color: #b35a5a;
+  --nav-bg: #3a1616;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      line-height: 1.6;
-    }
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
 
-    header {
-      background-color: var(--nav-bg);
-      padding: 1rem 2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
+header {
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
 
-    nav {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-    nav .logo {
-      font-weight: bold;
-      font-size: 1.2rem;
-      letter-spacing: 0.05em;
-    }
+nav .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
 
-    nav ul li a {
-      text-decoration: none;
-      color: var(--text-color);
-      font-size: 0.95rem;
-    }
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
 
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
+nav ul li a:hover {
+  text-decoration: underline;
+}
 
-    main {
-      max-width: 800px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-    }
+main {
+  max-width: 800px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
 
-    h1 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
 
-    article p {
-      margin-bottom: 1.5rem;
-      font-size: 1.05rem;
-    }
+article p {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
 
-    article h2 {
-      margin-top: 3rem;
-      margin-bottom: 1rem;
-      font-size: 1.6rem;
-    }
+article h2 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
 
-    article h3 {
-      margin-top: 2rem;
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-    }
-    .path {
+article h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+}
+
+.path {
   margin-top: 1rem;
   font-family: "Courier New", Courier, monospace;
   font-size: 0.95rem;
@@ -107,78 +104,79 @@
 }
 
 .path-root {
-  color: #9fb3c8; 
+  color: #9fb3c8;
 }
 
 .path-current {
   color: #ffffff;
   font-weight: bold;
 }
-    .meta {
-      margin-bottom: 2rem;
-      font-size: 0.9rem;
-    }
 
-    .meta .date {
-      display: block;
-      color: var(--accent-color);
-      margin-bottom: 0.3rem;
-    }
-    .meta .date.updated {
-      display: block;
-      font-style: italic;
-      color: #816262; 
-      margin-bottom: .3rem;
-    }
+.meta {
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
 
-    .tags {
-      margin-top: 0.3rem;
-    }
+.meta .date {
+  display: block;
+  color: var(--accent-color);
+  margin-bottom: 0.3rem;
+}
 
-    .tag {
-      display: inline-block;
-      margin-right: 0.5rem;
-      padding: 0.15rem 0.5rem;
-      font-size: 0.75rem;
-      color: var(--text-color);
-      border: 1px solid rgba(255,255,255,0.3);
-      text-decoration: none;
-    }
+.meta .date.updated {
+  display: block;
+  font-style: italic;
+  color: #816262;
+  margin-bottom: .3rem;
+}
 
-    .tag:hover {
-      background-color: rgba(255,255,255,0.1);
-    }
+.tags {
+  margin-top: 0.3rem;
+}
 
+.tag {
+  display: inline-block;
+  margin-right: 0.5rem;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-color);
+  border: 1px solid rgba(255,255,255,0.3);
+  text-decoration: none;
+}
 
-    article .image {
-      text-align: center;
-      margin: 2rem 0;
-    }
+.tag:hover {
+  background-color: rgba(255,255,255,0.1);
+}
 
-    article .image img {
-      max-width: 100%;
-      height: auto;
-      border: 1px solid rgba(255,255,255,0.2);
-      border-radius: 6px;
-      display: inline-block;
-    }
+article .image {
+  text-align: center;
+  margin: 2rem 0;
+}
 
-    article .image figcaption {
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.7);
-      font-style: italic;
-    }
+article .image img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 6px;
+  display: inline-block;
+}
 
-    footer {
-      margin-top: 5rem;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.6);
-    }
+article .image figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.7);
+  font-style: italic;
+}
 
-    pre, code {
+footer {
+  margin-top: 5rem;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+}
+
+pre, code {
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -190,6 +188,7 @@ pre {
   overflow-x: auto;
   font-size: 0.9rem;
 }
+
 article a {
   color: var(--accent-color);
   text-decoration: underline;
@@ -218,6 +217,7 @@ article a:hover {
 .disclaimer p {
   margin-bottom: 0;
 }
+
 .references-box {
   margin-top: 4rem;
   padding: 1.75rem 2rem;
@@ -268,7 +268,6 @@ span.end-of-article {
   color: #b35a5a;
 }
 
-
 .toc li a {
   color: white;
   text-decoration: none;
@@ -279,6 +278,7 @@ span.end-of-article {
   opacity: 1;
   text-decoration: none;
 }
+
 .toc-title {
   display: block;
   text-decoration: underline;
@@ -324,7 +324,6 @@ span.end-of-article {
   text-decoration: none;
 }
 
-/* Greyed out = no link, just a span */
 .post-nav-disabled {
   display: inline-block;
   padding: 0.4rem 0.9rem;
@@ -340,5 +339,9 @@ span.end-of-article {
   color: rgba(255, 255, 255, 0.3);
   padding: 0 0.1rem;
 }
-```
-
+@media (max-width: 400px) {
+  header nav {
+    padding: 0.5rem 0.75rem; /* same padding left AND right */
+    gap: 0.25rem;
+  }
+}

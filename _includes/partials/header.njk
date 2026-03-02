@@ -1,99 +1,3 @@
-<style>
-header {
-  width: 100%;
-}
-
-header nav {
-  display: flex;
-  justify-content: space-between; /* ← key line */
-  align-items: center;
-  padding: 1rem 2rem; /* controls distance from edges */
-}
-
-header nav ul {
-  display: flex;
-  gap: 1.5rem; /* spacing between links */
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-header nav a {
-  text-decoration: none;
-}
-header nav {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 1rem 2rem;
-}
-nav a.active {
-  border-bottom: 2px solid currentColor;
-}
-</style>
-
-<style>
-header {
-  width: 100%;
-}
-
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  gap: 1rem;
-}
-
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  flex-shrink: 0;
-}
-
-.logo {
-  font-weight: bold;
-  white-space: nowrap;
-}
-
-.terminal-icon-btn {
-  flex-shrink: 0;
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-color);
-  transition: color 0.2s;
-}
-
-.terminal-icon-btn:hover {
-  color: var(--accent-color);
-}
-
-.terminal-icon-btn svg {
-  width: 20px;
-  height: 20px;
-}
-
-header nav ul {
-  display: flex;
-  gap: 1.5rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  flex-wrap: wrap;
-}
-
-header nav a {
-  text-decoration: none;
-}
-
-nav a.active {
-  border-bottom: 2px solid currentColor;
-}
-</style>
-
 <header>
   <nav>
     <div class="nav-left">
@@ -105,7 +9,12 @@ nav a.active {
       </a>
       <div class="logo">Sauceda's Security Stack</div>
     </div>
-    <ul>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <ul class="nav-links">
       <li><a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a></li>
       <li><a href="/posts/" {% if page.url.startsWith("/posts") %}class="active"{% endif %}>Posts</a></li>
       <li><a href="/projects/" {% if page.url.startsWith("/projects") %}class="active"{% endif %}>Projects</a></li>

@@ -289,14 +289,31 @@
       color: var(--accent-color);
     }
 
+    /* Input area — one line on desktop */
     .terminal-input-area {
       background-color: #120f0f;
       padding: 1rem 2rem;
       border-top: 1px solid rgba(212, 82, 79, 0.2);
       display: flex;
+      flex-direction: row;
       align-items: center;
       gap: 0.5rem;
       flex-shrink: 0;
+      flex-wrap: nowrap;
+    }
+
+    .input-prompt-line {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .input-cmd-line {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      min-width: 0;
     }
 
     .prompt {
@@ -334,22 +351,10 @@
     }
 
     /* Scrollbar styling */
-    .terminal-output::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .terminal-output::-webkit-scrollbar-track {
-      background: #120f0f;
-    }
-
-    .terminal-output::-webkit-scrollbar-thumb {
-      background: rgba(212, 82, 79, 0.3);
-      border-radius: 4px;
-    }
-
-    .terminal-output::-webkit-scrollbar-thumb:hover {
-      background: rgba(212, 82, 79, 0.5);
-    }
+    .terminal-output::-webkit-scrollbar { width: 8px; }
+    .terminal-output::-webkit-scrollbar-track { background: #120f0f; }
+    .terminal-output::-webkit-scrollbar-thumb { background: rgba(212, 82, 79, 0.3); border-radius: 4px; }
+    .terminal-output::-webkit-scrollbar-thumb:hover { background: rgba(212, 82, 79, 0.5); }
 
     /* File Manager Styles */
     .file-manager-menu {
@@ -373,9 +378,7 @@
       font-size: 0.9rem;
     }
 
-    .toolbar-path {
-      color: var(--text-color);
-    }
+    .toolbar-path { color: var(--text-color); }
 
     .file-manager-content {
       flex: 1;
@@ -399,9 +402,7 @@
       transition: background-color 0.2s;
     }
 
-    .file-item:hover {
-      background-color: rgba(212, 82, 79, 0.15);
-    }
+    .file-item:hover { background-color: rgba(212, 82, 79, 0.15); }
 
     .file-icon {
       width: 48px;
@@ -474,9 +475,7 @@
       z-index: 9999;
     }
 
-    .achievement-toast.show {
-      right: 20px;
-    }
+    .achievement-toast.show { right: 20px; }
 
     .achievement-header {
       background-color: var(--accent-color);
@@ -506,9 +505,7 @@
       50% { transform: translateY(-10px); }
     }
 
-    .achievement-text {
-      flex: 1;
-    }
+    .achievement-text { flex: 1; }
 
     .achievement-title {
       font-size: 1.1rem;
@@ -520,6 +517,126 @@
     .achievement-subtitle {
       font-size: 0.85rem;
       color: var(--text-color);
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 640px) {
+      body {
+        overflow: auto;
+        height: auto;
+      }
+
+      /* Taskbar: two lines */
+      .taskbar {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 0.25rem 0.75rem;
+        gap: 0;
+        font-size: 0.75rem;
+      }
+
+      .taskbar-time {
+        position: static;
+        transform: none;
+        width: 100%;
+        text-align: center;
+        order: -1;
+        font-size: 0.8rem;
+        padding: 0.2rem 0;
+        border-bottom: 1px solid rgba(212,82,79,0.2);
+      }
+
+      .taskbar-left { gap: 0.75rem; }
+      .taskbar-right { gap: 0.5rem; }
+
+      /* Desktop */
+      .desktop {
+        padding: 0.5rem;
+        overflow: visible;
+        position: static;
+      }
+
+      .desktop-icons {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .desktop-icon { width: 64px; }
+
+      .folder-icon,
+      .desktop-icon-img {
+        width: 40px;
+        height: 40px;
+      }
+
+      /* Terminal: full width */
+      .terminal-container {
+        position: static !important;
+        transform: none !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto;
+        min-height: 60vh;
+        border-radius: 4px;
+        margin: 0;
+      }
+
+      /* Info section */
+      .info-section {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem 1rem;
+      }
+
+      .ascii-logo { display: none; }
+
+      .info-grid {
+        grid-template-columns: auto 1fr;
+        gap: 0.2rem 0.75rem;
+      }
+
+      .info-label {
+        font-size: 0.75rem;
+        white-space: nowrap;
+      }
+
+      .info-value {
+        font-size: 0.75rem;
+        word-break: break-word;
+      }
+
+      /* Output */
+      .terminal-output {
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+        min-height: 120px;
+      }
+
+      /* Input: two lines on mobile */
+      .terminal-input-area {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.5rem 1rem;
+        gap: 0.2rem;
+      }
+
+      .input-prompt-line {
+        font-size: 0.75rem;
+      }
+
+      .input-cmd-line {
+        width: 100%;
+      }
+
+      #terminal-input {
+        width: 100%;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
@@ -541,31 +658,24 @@
     <div class="taskbar-time" id="taskbar-time"></div>
     
     <div class="taskbar-right">
-      <!-- Volume Icon -->
       <div class="taskbar-icon" title="Volume">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M7 4L4 7H2v2h2l3 3V4z" fill="currentColor"/>
           <path d="M10 6c.5.5.8 1.2.8 2s-.3 1.5-.8 2M11.5 4.5c1 1 1.5 2.3 1.5 3.5s-.5 2.5-1.5 3.5" stroke="currentColor" stroke-width="1" fill="none"/>
         </svg>
       </div>
-      
-      <!-- Network Icon -->
       <div class="taskbar-icon" title="Network">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M1 13l1.5-1.5M4 10l1-1M7 7l1-1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
           <path d="M8 8c-2.2-2.2-2.2-5.8 0-8 2.2 2.2 5.8 2.2 8 0-2.2 2.2-2.2 5.8 0 8-2.2-2.2-5.8-2.2-8 0z" stroke="currentColor" stroke-width="1" fill="none"/>
         </svg>
       </div>
-      
-      <!-- Notifications Icon -->
       <div class="taskbar-icon" title="Notifications">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8 2c-1.7 0-3 1.3-3 3v3l-1.5 2H12.5L11 8V5c0-1.7-1.3-3-3-3z" fill="currentColor"/>
           <path d="M6.5 12.5c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5" stroke="currentColor" stroke-width="1" fill="none"/>
         </svg>
       </div>
-      
-      <!-- Power Icon -->
       <div class="taskbar-icon" title="Power">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M8 2v6M5 4.5C3.5 5.5 2.5 7 2.5 8.8c0 3 2.5 5.5 5.5 5.5s5.5-2.5 5.5-5.5c0-1.8-1-3.3-2.5-4.3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
@@ -576,13 +686,11 @@
 
   <!-- Desktop -->
   <div class="desktop">
-    <!-- Desktop Icons -->
     <div class="desktop-icons">
       <div class="desktop-icon" onclick="openTrash()">
         <div class="desktop-icon-img">🗑️</div>
         <div class="desktop-icon-label">trash</div>
       </div>
-
       <div class="desktop-icon" onclick="navigateTo('/')">
         <div class="folder-icon">
           <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -593,7 +701,6 @@
         </div>
         <div class="desktop-icon-label">home</div>
       </div>
-      
       <div class="desktop-icon" onclick="navigateTo('/posts/')">
         <div class="folder-icon">
           <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -604,7 +711,6 @@
         </div>
         <div class="desktop-icon-label">posts</div>
       </div>
-      
       <div class="desktop-icon" onclick="navigateTo('/projects/')">
         <div class="folder-icon">
           <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
@@ -647,22 +753,16 @@
         <div class="info-grid">
           <span class="info-label">current_user:</span>
           <span class="info-value">Benito Sauceda AKA 'Paperclips Vinny'</span>
-          
           <span class="info-label">current_host:</span>
           <span class="info-value">saucedasecurity.com</span>
-          
           <span class="info-label">top_OS:</span>
           <span class="info-value">Windows, Fedora, Kali</span>
-          
           <span class="info-label">user_type:</span>
           <span class="info-value">College Student</span>
-          
           <span class="info-label">specialization:</span>
           <span class="info-value">red team/offsec</span>
-          
           <span class="info-label">lab_focus:</span>
           <span class="info-value">linux internals, firmware, exploit paths</span>
-          
           <span class="info-label">favorite_quote:</span>
           <span class="info-value">"So I'll ask you again....are you a one, or a zero?"</span>
         </div>
@@ -674,15 +774,20 @@
         <div class="output-line"></div>
       </div>
 
+      <!-- Input: prompt on top, $ input below on mobile; one line on desktop -->
       <div class="terminal-input-area">
-        <span class="prompt">paperclips_vinny@saucedasecurity</span>:<span class="current-path" id="current-path">~</span>$ 
-        <input type="text" id="terminal-input" autofocus autocomplete="off" spellcheck="false">
+        <div class="input-prompt-line">
+          <span class="prompt">paperclips_vinny@saucedasecurity</span>:<span class="current-path" id="current-path">~</span>
+        </div>
+        <div class="input-cmd-line">
+          <span style="color: var(--prompt-color); font-weight: bold;">$&nbsp;</span>
+          <input type="text" id="terminal-input" autofocus autocomplete="off" spellcheck="false">
+        </div>
       </div>
     </div>
   </div>
 
   <script>
-    // Update taskbar time
     function updateTime() {
       const now = new Date();
       const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -690,35 +795,27 @@
       const dayName = days[now.getDay()];
       const monthName = months[now.getMonth()];
       const dayNum = now.getDate();
-      
       const pacificTime = new Date(now.toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }));
       let hours = pacificTime.getHours();
       const minutes = pacificTime.getMinutes().toString().padStart(2, '0');
       const ampm = hours >= 12 ? 'PM' : 'AM';
       hours = hours % 12 || 12;
-      
       document.getElementById('taskbar-time').innerHTML = `${dayName}, ${monthName} ${dayNum} ${hours}:${minutes} ${ampm}`;
     }
-    
     updateTime();
     setInterval(updateTime, 1000);
 
-    function navigateTo(url) {
-      window.location.href = url;
-    }
+    function navigateTo(url) { window.location.href = url; }
 
     function minimizeTerminal() {
       const terminal = document.querySelector('.terminal-container');
       terminal.style.display = 'none';
-      setTimeout(() => {
-        terminal.style.display = 'flex';
-      }, 300);
+      setTimeout(() => { terminal.style.display = 'flex'; }, 300);
     }
 
     const input = document.getElementById('terminal-input');
     const output = document.getElementById('output');
     const pathDisplay = document.getElementById('current-path');
-    
     let currentPath = '~';
     let commandHistory = [];
     let historyIndex = -1;
@@ -742,36 +839,29 @@
         const response = await fetch('/content-index.json');
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const data = await response.json();
-        
         function generateFilename(url, ext) {
           const pathSegments = url.split('/').filter(Boolean);
-          const slug = pathSegments[pathSegments.length - 1];
-          return slug + ext;
+          return pathSegments[pathSegments.length - 1] + ext;
         }
-        
         data.posts.forEach(post => {
           const filename = generateFilename(post.url, post.file_ext);
           fileSystem['~'].contents.posts.contents[filename] = { type: 'file', url: post.url };
           fileSystem['~/posts'].contents[filename] = { type: 'file', url: post.url };
         });
-        
         data.projects.forEach(project => {
           const filename = generateFilename(project.url, project.file_ext);
           fileSystem['~'].contents.projects.contents[filename] = { type: 'file', url: project.url };
           fileSystem['~/projects'].contents[filename] = { type: 'file', url: project.url };
         });
-        
       } catch (error) {
         console.error('Failed to load content:', error);
         addOutput('<span class="error">Note: Dynamic content loading failed. Some posts/projects may not appear.</span>');
       }
     }
-
     loadContent();
 
     const commands = {
-      help: () => {
-        return `Available commands:
+      help: () => `Available commands:
   ls              - list directory contents
   cd [dir]        - change directory
   cat [file]      - view file (opens in browser)
@@ -779,129 +869,66 @@
   clear           - clear terminal
   help            - show this help message
 
-  *tip of the day: to return to this terminal from within the site, press Ctrl+Alt+T or click >_ in the top left`;
-      },
-      
+  *tip of the day: to return to this terminal from within the site, press Ctrl+Alt+T or click >_ in the top left`,
+
       ls: (args) => {
         let targetPath = currentPath;
-        
         if (args[0]) {
-          if (args[0].startsWith('/')) {
-            targetPath = '~' + args[0];
-          } else if (args[0] === '~' || args[0] === '/') {
-            targetPath = '~';
-          } else if (args[0] === '..') {
-            targetPath = '~';
-          } else if (args[0].startsWith('~/')) {
-            targetPath = args[0];
-          } else {
-            targetPath = currentPath === '~' ? `~/${args[0]}` : `${currentPath}/${args[0]}`;
-          }
+          if (args[0].startsWith('/')) targetPath = '~' + args[0];
+          else if (args[0] === '~' || args[0] === '/') targetPath = '~';
+          else if (args[0] === '..') targetPath = '~';
+          else if (args[0].startsWith('~/')) targetPath = args[0];
+          else targetPath = currentPath === '~' ? `~/${args[0]}` : `${currentPath}/${args[0]}`;
         }
-        
         const current = fileSystem[targetPath];
-        if (!current || !current.contents) {
-          return `ls: cannot access '${args[0] || currentPath}': No such file or directory`;
-        }
-        
+        if (!current || !current.contents) return `ls: cannot access '${args[0] || currentPath}': No such file or directory`;
         let result = '';
         Object.keys(current.contents).forEach(item => {
           const itemData = current.contents[item];
-          if (itemData.type === 'directory') {
-            result += `<span class="directory">${item}/</span>\n`;
-          } else {
-            result += `<span class="file">${item}</span>\n`;
-          }
+          result += itemData.type === 'directory'
+            ? `<span class="directory">${item}/</span>\n`
+            : `<span class="file">${item}</span>\n`;
         });
         return result || 'empty directory';
       },
-      
-      pwd: () => currentPath,
-      
-      cd: (args) => {
-        if (!args[0] || args[0] === '~') {
-          currentPath = '~';
-          pathDisplay.textContent = '~';
-          return '';
-        }
-        
-        if (args[0] === '..') {
-          if (currentPath !== '~') {
-            currentPath = '~';
-            pathDisplay.textContent = '~';
-          }
-          return '';
-        }
-        
-        const targetPath = currentPath === '~' ? `~/${args[0]}` : `${currentPath}/${args[0]}`;
 
-        // Case-insensitive directory lookup
-        const matchedPath = Object.keys(fileSystem).find(
-          key => key.toLowerCase() === targetPath.toLowerCase()
-        );
-        
-        if (matchedPath && fileSystem[matchedPath].type === 'directory') {
-          currentPath = matchedPath;
-          pathDisplay.textContent = currentPath;
-          return '';
-        }
-        
+      pwd: () => currentPath,
+
+      cd: (args) => {
+        if (!args[0] || args[0] === '~') { currentPath = '~'; pathDisplay.textContent = '~'; return ''; }
+        if (args[0] === '..') { if (currentPath !== '~') { currentPath = '~'; pathDisplay.textContent = '~'; } return ''; }
+        const targetPath = currentPath === '~' ? `~/${args[0]}` : `${currentPath}/${args[0]}`;
+        const matchedPath = Object.keys(fileSystem).find(key => key.toLowerCase() === targetPath.toLowerCase());
+        if (matchedPath && fileSystem[matchedPath].type === 'directory') { currentPath = matchedPath; pathDisplay.textContent = currentPath; return ''; }
         return `cd: ${args[0]}: No such directory`;
       },
-      
-      cat: (args) => {
-        if (!args[0]) {
-          return 'cat: missing file operand';
-        }
-        
-        if (args[0] === '~/.bash_history' || args[0] === '.bash_history') {
-          showAchievement();
-          return 'bash: .bash_history: Permission denied (nice try though 😏)';
-        }
-        
-        const current = fileSystem[currentPath];
-        if (!current || !current.contents) {
-          return `cat: ${args[0]}: No such file`;
-        }
 
-        // Case-insensitive file lookup
-        const matchedKey = Object.keys(current.contents).find(
-          key => key.toLowerCase() === args[0].toLowerCase()
-        );
-        
-        if (!matchedKey) {
-          return `cat: ${args[0]}: No such file`;
-        }
-        
+      cat: (args) => {
+        if (!args[0]) return 'cat: missing file operand';
+        if (args[0] === '~/.bash_history' || args[0] === '.bash_history') { showAchievement(); return 'bash: .bash_history: Permission denied (nice try though 😏)'; }
+        const current = fileSystem[currentPath];
+        if (!current || !current.contents) return `cat: ${args[0]}: No such file`;
+        const matchedKey = Object.keys(current.contents).find(key => key.toLowerCase() === args[0].toLowerCase());
+        if (!matchedKey) return `cat: ${args[0]}: No such file`;
         const file = current.contents[matchedKey];
-        if (file.type === 'directory') {
-          return `cat: ${args[0]}: Is a directory`;
-        }
-        
-        if (file.url) {
-          window.location.href = file.url;
-          return `Opening ${matchedKey}...`;
-        }
-        
+        if (file.type === 'directory') return `cat: ${args[0]}: Is a directory`;
+        if (file.url) { window.location.href = file.url; return `Opening ${matchedKey}...`; }
         return 'File has no content';
       },
-      
-      clear: () => {
-        output.innerHTML = '';
-        return '';
-      }
+
+      clear: () => { output.innerHTML = ''; return ''; }
     };
 
     function addOutput(text, isCommand = false) {
       const line = document.createElement('div');
       line.className = 'output-line';
-      
       if (isCommand) {
-        line.innerHTML = `<span class="prompt">paperclips_vinny@saucedasecurity</span>:<span class="current-path">${currentPath}</span>$ ${text}`;
+        const isMobile = window.innerWidth <= 640;
+        const promptText = isMobile ? 'vinny@sec' : 'paperclips_vinny@saucedasecurity';
+        line.innerHTML = `<span class="prompt">${promptText}</span>:<span class="current-path">${currentPath}</span>$ ${text}`;
       } else {
         line.innerHTML = text;
       }
-      
       output.appendChild(line);
       output.scrollTop = output.scrollHeight;
     }
@@ -910,11 +937,8 @@
       const parts = cmdLine.trim().split(/\s+/);
       const cmd = parts[0].toLowerCase();
       const args = parts.slice(1);
-      
       addOutput(cmdLine, true);
-      
       if (cmd === '') return;
-      
       if (commands[cmd]) {
         const result = commands[cmd](args);
         if (result) addOutput(result);
@@ -933,29 +957,17 @@
         input.value = '';
       } else if (e.key === 'ArrowUp') {
         e.preventDefault();
-        if (historyIndex > 0) {
-          historyIndex--;
-          input.value = commandHistory[historyIndex];
-        }
+        if (historyIndex > 0) { historyIndex--; input.value = commandHistory[historyIndex]; }
       } else if (e.key === 'ArrowDown') {
         e.preventDefault();
-        if (historyIndex < commandHistory.length - 1) {
-          historyIndex++;
-          input.value = commandHistory[historyIndex];
-        } else {
-          historyIndex = commandHistory.length;
-          input.value = '';
-        }
+        if (historyIndex < commandHistory.length - 1) { historyIndex++; input.value = commandHistory[historyIndex]; }
+        else { historyIndex = commandHistory.length; input.value = ''; }
       } else if (e.key === 'Tab') {
         e.preventDefault();
         const current = fileSystem[currentPath];
         if (current && current.contents) {
           const partial = input.value.split(' ').pop();
-          // Case-insensitive tab completion
-          const matches = Object.keys(current.contents).filter(item =>
-            item.toLowerCase().startsWith(partial.toLowerCase())
-          );
-          
+          const matches = Object.keys(current.contents).filter(item => item.toLowerCase().startsWith(partial.toLowerCase()));
           if (matches.length === 1) {
             const words = input.value.split(' ');
             words[words.length - 1] = matches[0];
@@ -968,48 +980,30 @@
     document.addEventListener('click', () => { input.focus(); });
     input.focus();
 
-    function openTrash() {
-      document.getElementById('trash-viewer').style.display = 'flex';
-    }
-
-    function closeTrash() {
-      document.getElementById('trash-viewer').style.display = 'none';
-    }
-
+    function openTrash() { document.getElementById('trash-viewer').style.display = 'flex'; }
+    function closeTrash() { document.getElementById('trash-viewer').style.display = 'none'; }
     function minimizeTrash() {
       const trash = document.getElementById('trash-viewer');
       trash.style.display = 'none';
       setTimeout(() => { trash.style.display = 'flex'; }, 300);
     }
-
-    function openTodoList() {
-      document.getElementById('todo-viewer').style.display = 'flex';
-    }
-
-    function closeTodo() {
-      document.getElementById('todo-viewer').style.display = 'none';
-    }
-
+    function openTodoList() { document.getElementById('todo-viewer').style.display = 'flex'; }
+    function closeTodo() { document.getElementById('todo-viewer').style.display = 'none'; }
     function minimizeTodo() {
       const todo = document.getElementById('todo-viewer');
       todo.style.display = 'none';
       setTimeout(() => { todo.style.display = 'flex'; }, 300);
     }
-
     function showAchievement() {
       const toast = document.getElementById('achievement-toast');
       const sound = document.getElementById('achievement-sound');
       toast.classList.add('show');
-      if (sound) {
-        sound.currentTime = 0;
-        sound.volume = 0.6;
-        sound.play().catch(() => {});
-      }
+      if (sound) { sound.currentTime = 0; sound.volume = 0.6; sound.play().catch(() => {}); }
       setTimeout(() => { toast.classList.remove('show'); }, 5000);
     }
   </script>
 
-  <!-- Trash Viewer Window -->
+  <!-- Trash Viewer -->
   <div id="trash-viewer" class="terminal-container" style="display: none; z-index: 1001;">
     <div class="terminal-header">
       <div class="terminal-title">~/.trash - File Manager</div>
@@ -1019,22 +1013,12 @@
         <div class="terminal-button btn-close" onclick="closeTrash()">×</div>
       </div>
     </div>
-
     <div class="file-manager-menu">
-      <span class="menu-item">File</span>
-      <span class="menu-item">Edit</span>
-      <span class="menu-item">View</span>
-      <span class="menu-item">Sort</span>
-      <span class="menu-item">Go</span>
-      <span class="menu-item">Tools</span>
+      <span class="menu-item">File</span><span class="menu-item">Edit</span><span class="menu-item">View</span><span class="menu-item">Sort</span><span class="menu-item">Go</span><span class="menu-item">Tools</span>
     </div>
-
     <div class="file-manager-toolbar">
-      <div class="toolbar-path">
-        <span style="color: var(--prompt-color);">📁</span> ~/.trash/
-      </div>
+      <div class="toolbar-path"><span style="color: var(--prompt-color);">📁</span> ~/.trash/</div>
     </div>
-
     <div class="file-manager-content">
       <div class="file-item" ondblclick="openTodoList()">
         <div class="file-icon">
@@ -1049,11 +1033,10 @@
         <div class="file-name">todo.txt</div>
       </div>
     </div>
-
     <div class="file-manager-statusbar">1 item</div>
   </div>
 
-  <!-- Todo List Text Editor Window -->
+  <!-- Todo List -->
   <div id="todo-viewer" class="terminal-container" style="display: none; z-index: 1002;">
     <div class="terminal-header">
       <div class="terminal-title">todo.txt - Text Editor</div>
@@ -1063,28 +1046,15 @@
         <div class="terminal-button btn-close" onclick="closeTodo()">×</div>
       </div>
     </div>
-
     <div class="file-manager-menu">
-      <span class="menu-item">File</span>
-      <span class="menu-item">Edit</span>
-      <span class="menu-item">View</span>
-      <span class="menu-item">Search</span>
-      <span class="menu-item">Tools</span>
-      <span class="menu-item">Help</span>
+      <span class="menu-item">File</span><span class="menu-item">Edit</span><span class="menu-item">View</span><span class="menu-item">Search</span><span class="menu-item">Tools</span><span class="menu-item">Help</span>
     </div>
-
-    <div class="text-editor-warning">
-      ⚠️ Warning: This file is in Trash and may be permanently deleted
-    </div>
-
+    <div class="text-editor-warning">⚠️ Warning: This file is in Trash and may be permanently deleted</div>
     <div class="text-editor-content"><span style="text-decoration: line-through;">[ ] Make a to-do list</span>
 [ ] Back up the back ups
 [ ] Check if "Prod" is actually prod
 [ ] Stop leaving reverse shells in ~/.bash_history!</div>
-
-    <div class="text-editor-statusbar">
-      Modified | Line 4, Col 48 | UTF-8 | ~/.trash/todo.txt
-    </div>
+    <div class="text-editor-statusbar">Modified | Line 4, Col 48 | UTF-8 | ~/.trash/todo.txt</div>
   </div>
 
   <!-- Achievement Toast -->
