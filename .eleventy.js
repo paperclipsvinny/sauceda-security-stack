@@ -77,4 +77,11 @@ eleventyConfig.addCollection("tagList", function(collectionApi) {
     htmlTemplateEngine: "njk"
   };
   
+  //google date iso format
+    eleventyConfig.addFilter("isoDate", function(date) {
+    if (!date) return "";
+    if (typeof date === 'string') date = new Date(date);
+    return date.toISOString().split('T')[0];
+  });
+
 };
