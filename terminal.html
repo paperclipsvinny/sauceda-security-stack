@@ -924,7 +924,7 @@
       line.className = 'output-line';
       if (isCommand) {
         const isMobile = window.innerWidth <= 640;
-        const promptText = isMobile ? 'vinny@sec' : 'paperclips_vinny@saucedasecurity';
+        const promptText = isMobile ? 'paperclips_vinny@saucedasecurity' : 'paperclips_vinny@saucedasecurity';
         line.innerHTML = `<span class="prompt">${promptText}</span>:<span class="current-path">${currentPath}</span>$ ${text}`;
       } else {
         line.innerHTML = text;
