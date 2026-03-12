@@ -345,3 +345,8 @@ span.end-of-article {
     gap: 0.25rem;
   }
 }
+
+.label {
+  color: #b35a5a; /* accent */
+  font-weight: 700;
+}

@@ -1,22 +1,19 @@
 // .eleventy.js
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+
 module.exports = function(eleventyConfig) {
-  // plugins
+  // Plugins
   eleventyConfig.addPlugin(pluginRss);
 
   // Passthroughs
   eleventyConfig.addPassthroughCopy("Assets");
 
-  //Date Filter 
+  // Date Filter
   eleventyConfig.addFilter("dateFormat", function(date) {
     if (!date) return "";
-    
-    // Handle string dates
     if (typeof date === 'string') {
       date = new Date(date);
     }
-    
-    // Format date as "Month Day, Year"
     return date.toLocaleDateString('en-US', { 
       year: 'numeric', 
       month: 'long', 
@@ -24,49 +21,62 @@ module.exports = function(eleventyConfig) {
     });
   });
 
-  // Collections
-eleventyConfig.addCollection("posts", function(collectionApi) {
-  return collectionApi.getFilteredByTag("posts").sort((a, b) => {
-    return b.date - a.date; // Descending order (newest first)
+  // ISO Date filter for sitemap
+  eleventyConfig.addFilter("isoDate", function(date) {
+    if (!date) return "";
+    if (typeof date === 'string') date = new Date(date);
+    return date.toISOString().split('T')[0];
   });
-});
 
-//  Filters 
-eleventyConfig.addFilter("slugify", function(text) {
-  return text.toString().toLowerCase()
-    .replace(/\s+/g, '-').replace(/[^\w\-]+/g, '')
-    .replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, '');
-});
-
-eleventyConfig.addFilter("truncate", function(text, length = 200) {
-  if (text.length <= length) return text;
-  return text.substring(0, length).trim() + '...';
-});
-
-eleventyConfig.addFilter("striptags", function(text) {
-  return text.replace(/<[^>]*>/g, '');
-});
-
-// collections
-eleventyConfig.addCollection("tagList", function(collectionApi) {
-  const tagSet = new Set();
-  collectionApi.getAll().forEach(item => {
-    if ("tags" in item.data) {
-      let tags = item.data.tags;
-      if (typeof tags === "string") tags = [tags];
-      tags.forEach(tag => {
-        if (tag !== "posts") tagSet.add(tag);
-      });
-    }
+  // Slugify filter
+  eleventyConfig.addFilter("slugify", function(text) {
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^\w\-]+/g, '')
+      .replace(/\-\-+/g, '-')
+      .replace(/^-+/, '')
+      .replace(/-+$/, '');
   });
-  return Array.from(tagSet).sort();
-});
 
+  // Truncate filter
+  eleventyConfig.addFilter("truncate", function(text, length = 200) {
+    if (text.length <= length) return text;
+    return text.substring(0, length).trim() + '...';
+  });
+
+  // Strip tags filter
+  eleventyConfig.addFilter("striptags", function(text) {
+    return text.replace(/<[^>]*>/g, '');
+  });
+
+  // Posts collection
+  eleventyConfig.addCollection("posts", function(collectionApi) {
+    return collectionApi.getFilteredByTag("posts").sort((a, b) => {
+      return b.date - a.date;
+    });
+  });
+
+  // Tag list collection
+  eleventyConfig.addCollection("tagList", function(collectionApi) {
+    const tagSet = new Set();
+    collectionApi.getAll().forEach(item => {
+      if ("tags" in item.data) {
+        let tags = item.data.tags;
+        if (typeof tags === "string") tags = [tags];
+        tags.forEach(tag => {
+          if (tag !== "posts") tagSet.add(tag);
+        });
+      }
+    });
+    return Array.from(tagSet).sort();
+  });
+
+  // Projects collection
   eleventyConfig.addCollection("projects", function(collectionApi) {
     return collectionApi.getFilteredByTag("project");
   });
 
-  // Directory settings
+  // Directory settings 
   return {
     dir: {
       input: ".",
@@ -76,12 +86,4 @@ eleventyConfig.addCollection("tagList", function(collectionApi) {
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk"
   };
-  
-  //google date iso format
-    eleventyConfig.addFilter("isoDate", function(date) {
-    if (!date) return "";
-    if (typeof date === 'string') date = new Date(date);
-    return date.toISOString().split('T')[0];
-  });
-
 };
