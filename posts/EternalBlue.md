@@ -30,7 +30,7 @@ thumbnail: /assets/img/posts/my-cool-post.png
 </div>
 In 2017, a mysterious group called the shadow brokers claimed to have hacked the NSA, and leaked some of their developed cyber weapons as proof. EternalBlue was among the leaked, and it was confirmed that The NSA knew about the vulnerability for years and kept it secret for its own exploitation. When the NSA learned the tools might have been stolen, they warned Microsoft, who released patch MS17-010 on March 14th, 2017. However, many systems failed to install the patch, and in May of 2017, WannaCry, a worm built based on the EternalBlue exploit, was released in the wild. Within hours, it had infected hundreds of thousands of machines. Because of its significance and fascinating story, I chose EternalBlue (CVE-2017-0144) as my inaugural CVE in my new weekly series. 
 
-### Scope & Authorization
+### Scope & Authorization 
 
 This testing was conducted on a Windows 7 system, operated offline, for educational and defensive security research purposes only. I conducted this testing ethically, with express authorization.
 
