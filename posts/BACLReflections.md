@@ -69,7 +69,7 @@ Another major lesson was adaptability. In February 2025, a federal funding freez
 
 <div class="image">
   <img src="/Assets/images/postimages/BACL/hospitaltopology.png" alt="Hospotal Topology Packet Tracer Screenshot">
-  <figcaption>Screenshot taken early on from our hospital topology development. Image courtesy of Cisco.</figcaption>
+  <figcaption>Screenshot taken early on from our hospital topology development. </figcaption>
 </div>
 
 When that project was scrapped in favor of a Jeopardy-style CTF, the work didn't disappear— it transformed. I took parts of what I had learned and helped turn it into a smaller-scale incident response tabletop exercise with friends. That experience taught me that no work is wasted, and that being flexible is just as important as being technical.
