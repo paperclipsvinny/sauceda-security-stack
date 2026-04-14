@@ -90,3 +90,9 @@ This project is nowhere near done. My next step is starting a weekly CVE seriesâ
 
 _As promised, if you'd like to see my technical notes and an in-depth write-up from the process of creating this lab, check out this GitHub repo: [https://github.com/paperclipsvinny/physical-cyber-range](https://github.com/paperclipsvinny/physical-cyber-range). This is also where future updates to the cyber range configuration will be posted._ 
 
+<div class="image">
+  <img src="/Assets/images/projectimages/CyberRange/ricedoutcybersecurityrange.png" alt="Top view of cyber range " />
+  <figcaption>
+    "You made it to the end of the post! Here's some #hackerz stickers as a reward." 
+  </figcaption>
+</div>
