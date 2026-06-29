@@ -1,1 +1,2 @@
-https://card.saucedasecurity.com/* /BusinessCard/:splat 200
+https://card.saucedasecurity.com/ /BusinessCard/index.html 200
+https://card.saucedasecurity.com/* https://saucedasecurity.com/:splat 301
