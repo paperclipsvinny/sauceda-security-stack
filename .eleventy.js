@@ -7,6 +7,7 @@ module.exports = function(eleventyConfig) {
 
   // Passthroughs
   eleventyConfig.addPassthroughCopy("Assets");
+  eleventyConfig.addPassthroughCopy("_redirects");
 
   // Date Filter
   eleventyConfig.addFilter("dateFormat", function(date) {
