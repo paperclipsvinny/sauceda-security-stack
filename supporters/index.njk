@@ -1,0 +1,94 @@
+---
+layout: layouts/base.njk
+title: Supporters
+eleventyExcludeFromCollections: true
+---
+
+<h1>Supporters</h1>
+
+<p style="margin-top: 1rem; margin-bottom: 3rem;">
+  Want to be listed here? <a href="https://ko-fi.com/paperclipsvinny" style="color: var(--accent-color);">Support me </a> and you'll show up below.
+</p>
+
+{% set tier3 = [] %}
+{% set tier2 = [] %}
+{% set tier1 = [] %}
+
+{% for s in (collections.supporter or []) %}
+  {% if s.data.tier == 3 %}
+    {% set tier3 = (tier3.push(s), tier3) %}
+  {% elif s.data.tier == 2 %}
+    {% set tier2 = (tier2.push(s), tier2) %}
+  {% elif s.data.tier == 1 %}
+    {% set tier1 = (tier1.push(s), tier1) %}
+  {% endif %}
+{% endfor %}
+
+<section class="tier">
+  <h1>C-Suite </h1>
+  {% if tier3.length %}
+    {% for s in tier3 %}
+      <p class="supporter tier-3">{{ s.data.name }}</p>
+    {% endfor %}
+  {% else %}
+    <p class="placeholder">Nobody yet — could be you</p>
+  {% endif %}
+</section>
+
+<section class="tier">
+  <h2>Big Spenders </h2>
+  {% if tier2.length %}
+    {% for s in tier2 %}
+      <p class="supporter tier-2">{{ s.data.name }}</p>
+    {% endfor %}
+  {% else %}
+    <p class="placeholder">Nobody yet — could be you</p>
+  {% endif %}
+</section>
+
+<section class="tier">
+  <h3>Sauceda's Supporters Club </h3>
+  {% if tier1.length %}
+    {% for s in tier1 %}
+      <p class="supporter tier-1">{{ s.data.name }}</p>
+    {% endfor %}
+  {% else %}
+    <p class="placeholder">Nobody yet — could be you</p>
+  {% endif %}
+</section>
+
+<style>
+  .tier {
+    margin-bottom: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  .tier h1,
+  .tier h2,
+  .tier h3 {
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    font-weight: bold;
+  }
+
+  .tier-label {
+    font-size: 0.75em;
+    opacity: 0.7;
+    font-weight: normal;
+  }
+
+  .supporter {
+    margin: 0.4rem 0;
+  }
+
+  .tier-1 { font-size: 1rem; }
+  .tier-2 { font-size: 1.3rem; }
+  .tier-3 { font-size: 1.7rem; font-weight: bold; }
+
+  .placeholder {
+    opacity: 0.5;
+    font-style: italic;
+  }
+</style>
